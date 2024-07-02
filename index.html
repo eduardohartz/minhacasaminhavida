@@ -8,18 +8,141 @@
     <meta property="og:url" content="https://minhacasaminhavidars.com.br/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Minha Casa Minha Vida RS">
-    <meta property="og:description" content="O nosso site.">
-    <!-- <meta property="og:image" content=""> -->
-    <!-- <meta name="theme-color" content="#C489FE"> -->
+    <meta property="og:description" content="Conheça o nosso site!">
+    <meta property="og:image" content="https://i.imgur.com/O1GaszB.jpeg">
+    <meta name="theme-color" content="#C489FE">
     <meta name="darkreader-lock">
 
     <title>Minha Casa Minha Vida RS</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+    <link rel="stylesheet" href="assets/css/index/main.css">
+    <link rel="stylesheet" href="assets/css/index/mobile.css" media="screen and (max-width: 1030px)">
+    <link rel="icon" type="image/x-icon" href="assets/img/icon.ico">
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
+    <a href="https://wa.me/5551996472163" target="_blank"><img class="whatsapp" src="assets/img/whatsapp.png"></a>
+    <div class="navbar">
+        <a href="/#"><img src="assets/img/logo.jpeg" class="navlogo"></a>
+        <div class="navbtns">
+            <button class="navbtn" onclick="location.href='quemsomos.html';">Quem somos</button>
+            <button class="navbtn" onclick="location.href='empreendimentos.html';">Empreendimentos</button>
+            <button class="navbtn" onclick="simulador()">Simule seu crédito</button>
+            <button class="navbtn" onclick="location.href='bonus.html';">Bônus especial de 1 mil reais</button>
+            <button class="navbtn" onclick="location.href='contato.html';">Contato</button>
+        </div>
+        <img src="assets/img/menu.png" class="navmenubtn" id="navmenubtn">
+    </div>
+    <div id="modal" class="modal">
+        <img src="assets/img/close.png" class="close">
+        <div class="modal-content">
 
+            <button class="menubtn" onclick="location.href='quemsomos.html';">Quem somos</button>
+            <button class="menubtn" onclick="location.href='empreendimentos.html';">Empreendimentos</button>
+            <button class="menubtn" onclick="simulador()">Simule seu crédito</button>
+            <button class="menubtn" onclick="location.href='bonus.html';">Bônus especial de 1 mil reais</button>
+            <button class="menubtn" onclick="location.href='contato.html';">Contato</button>
+        </div>
+    </div>
+    <div class="landing">
+        <span class="landingtitle">Voce merece conforto e tranquilidade.</span>
+        <button class="landingbtn" onclick="simulador()">Simule seu credito</button>
+    </div>
+    <div class="simulador" id="simulador">
+        <div class="container">
+            <span>Simule Seu Credito</span>
+            <form action="https://api.minhacasaminhavidars.com.br/form.php" method="POST">
+                <div class="item">
+                    <label for="nome">Seu Nome<font color="red">*</font></label><br>
+                    <input type="text" class="input" name="nome" required>
+                </div>
+                <div class="item">
+                    <label for="email">Seu E-Mail<font color="red">*</font></label><br>
+                    <input type="email" class="input" name="email" required>
+                </div>
+                <div class="item">
+                    <label for="telefone">Seu Telefone<font color="red">*</font></label><br>
+                    <input type="text" class="input" name="telefone" value="+55" required>
+                </div>
+                <div class="item">
+                    <label for="cpf">CPF<font color="red">*</font></label><br>
+                    <input type="text" class="input" name="cpf" required>
+                </div>
+                <div class="item">
+                    <label for="renda">Renda<font color="red">*</font></label><br>
+                    <select name="renda" class="input" required>
+                        <option value="">—Escolha uma opção—</option>
+                        <option value="Ate R$ 2.800,000">Até R$ 2.800,00</option>
+                        <option value="De R$ 2.801,00 a R$ 3.200,00">De R$ 2.801,00 a R$ 3.200,00</option>
+                        <option value="De R$ 3.201,00 a R$ 3.600,00">De R$ 3.201,00 a R$ 3.600,00</option>
+                        <option value="Maior que R$ 3.600,00">Maior que R$ 3.600,00</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label for="estadocivil">Estado Civil<font color="red">*</font></label><br>
+                    <select name="estadocivil" class="input" required>
+                        <option value="">—Escolha uma opção—</option>
+                        <option value="Solteiro">Solteiro(a)</option>
+                        <option value="Casado">Casado(a)</option>
+                        <option value="Divorciado">Divociado(a)</option>
+                        <option value="Viuvo">Viuvo(a)</option>
+                        <option value="Uniao Estavel">Uniao Estavel</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label>Possui FGTS?<font color="red">*</font></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="fgtssim" name="fgts" value="Sim" required>
+                            <label for="fgtssim">Sim</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="fgtsnao" name="fgts" value="Nao" required>
+                            <label for="fgtsnao">Não</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <label>Possui Dependentes?<font color="red">*</font></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="dependentessim" name="dependentes" value="Sim" required>
+                            <label for="dependentessim">Sim</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="dependentesnao" name="dependentes" value="Nao" required>
+                            <label for="dependentesnao">Não</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <label>Emprego<font color="red">*</font></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="autonomo" name="emprego" value="Autonomo" required>
+                            <label for="autonomo">Autonomo</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="assalariado" name="emprego" value="Assalariado" required>
+                            <label for="assalariado">Assalariado</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="g-recaptcha" data-sitekey="6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR" data-callback='onSubmit' data-action='submit'>Fazer Simulação</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <span>&copy; 2024 Minha Casa Minha Vida RS - contato@minhacasaminhavidars.com.br</span>
+        <div>
+            <a href="https://wa.me/5551996472163" target="_blank"><img src="assets/img/whatsapp.png" class="footersocial"></a>
+            <a href="https://instagram.com/novominhacasaminhavidars" target="_blank"><img src="assets/img/instagram.png" class="footersocial"></a>
+            <a href="mailto:contato@minhacasaminhavidars.com.br" target="_blank"><img src="assets/img/email.png" class="footersocial"></a>
+        </div>
+        <a href="/#"><img src="assets/img/icon.png" class="footericon"></a>
+    </footer>
 </body>
 
 </html>

@@ -1,0 +1,37 @@
+@import url("../global.css");
+
+.landing {
+    background-image: url('../../img/jacuzzi.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2em;
+}
+
+.landingtitle {
+    text-align: center;
+    font-family: 'recife-display', sans-serif;
+    font-size: 70px;
+    color: #fff;
+}
+
+.landingbtn {
+    font-family: 'centra-no2', sans-serif;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #000;
+    border: none;
+    width: 210px;
+    height: 60px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.landingbtn:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+}
