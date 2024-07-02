@@ -25,6 +25,28 @@ document.addEventListener('DOMContentLoaded', function () {
         e.target.value = formattedInputValue;
     });
 
+    const cpfInput = document.querySelector('input[name="cpf"]');
+
+    cpfInput.addEventListener('input', function (e) {
+        let inputValue = e.target.value.replace(/\D/g, '');
+        let formattedInputValue = '';
+
+        if (inputValue.length > 0) {
+            formattedInputValue += inputValue.substring(0, 3);
+            if (inputValue.length >= 4) {
+                formattedInputValue += '.' + inputValue.substring(3, 6);
+                if (inputValue.length >= 7) {
+                    formattedInputValue += '.' + inputValue.substring(6, 9);
+                    if (inputValue.length >= 10) {
+                        formattedInputValue += '-' + inputValue.substring(9, 11);
+                    }
+                }
+            }
+        }
+
+        e.target.value = formattedInputValue;
+    });
+
     const queryString = window.location.search;
     if (queryString.includes('1')) {
         alert('Simulacao enviada com sucesso!');
@@ -47,6 +69,6 @@ function simulador() {
 }
 
 function onSubmit(token) {
-  document.getElementById("form").submit();
+    document.getElementById("form").submit();
 }
 
