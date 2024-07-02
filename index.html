@@ -53,7 +53,7 @@
     <div class="simulador" id="simulador">
         <div class="container">
             <span>Simule Seu Credito</span>
-            <form action="https://api.minhacasaminhavidars.com.br/form.php" method="POST">
+            <form action="https://api.minhacasaminhavidars.com.br/form.php" method="POST" id="form">
                 <div class="item">
                     <label for="nome">Seu Nome<font color="red">*</font></label><br>
                     <input type="text" class="input" name="nome" required>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="g-recaptcha" data-sitekey="6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR" data-action='submit'>Fazer Simulação</button>
+                <button class="g-recaptcha" data-sitekey="6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR" data-callback='onSubmit' data-action='submit'>Fazer Simulação</button>
             </form>
         </div>
     </div>
