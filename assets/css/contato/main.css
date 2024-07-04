@@ -27,14 +27,14 @@ body {
 footer {
     width: 100%;
     height: 55vh;
-    font-size: 25px;
+    font-size: 20px;
     justify-content: start;
     gap: 10px;
 }
 
 .title {
-    font-family: 'recife-display', sans-serif;
-    font-size: 35px;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 323px;
     margin-bottom: 50px;
     margin-top: 50px;
     color: #fff;
