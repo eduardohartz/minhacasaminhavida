@@ -1,7 +1,7 @@
 @import url("../global.css");
 
 .landing {
-    background-image: url('../../img/beach.jpg');
+    background-image: url('../../img/capas/beach.jpg');
     background-size: cover;
     background-position: center;
     height: 55vh;
