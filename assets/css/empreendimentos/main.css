@@ -68,6 +68,7 @@
     display: flex;
     justify-content: center;
 }
+
 .itemlogo img {
     width: 300px;
 }
@@ -140,21 +141,34 @@
     font-family: 'centra-no2', sans-serif;
     font-size: 17px;
     color: #000;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     width: 100%;
+}
+.title {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 19px;
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+    font-weight: bold;
 }
 
 .itemlist {
     display: flex;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 17px;
+    color: #000;
+    width: 100%;
 }
 
-.itemlist > :first-child {
+.itemlist> :first-child {
     flex: 1;
     padding-right: 20px;
 }
 
-.itemlist > :last-child {
+.itemlist> :last-child {
     flex: 1;
 }
 
@@ -163,7 +177,7 @@
     font-size: 30px;
     color: #000;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     text-shadow: 1px 1px 5px #7b7b7b;
@@ -172,7 +186,7 @@
 .subvalor {
     font-size: 20px;
     color: #000;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
