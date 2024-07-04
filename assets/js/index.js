@@ -51,9 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (queryString.includes('1')) {
         alert('Obrigado! Em breve um de nossos consultores entrar\'a em contato com o resultado da sua simulação!');
     } else if (queryString.includes('0')) {
-        alert('Erro ao enviar a simulacao!');
+        alert('Erro ao enviar a simulaçao! Mande um email para contato@minhacasaminhavidars.com.br [0]');
     } else if (queryString.includes('2')) {
         alert('Você precisa preencher todos os campos!');
+    } else if (queryString.includes('3')) {
+        alert('Erro ao enviar a simulaçao! Mande um email para contato@minhacasaminhavidars.com.br [3]');
     }
 
 });
