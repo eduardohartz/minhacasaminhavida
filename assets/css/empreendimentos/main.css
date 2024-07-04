@@ -4,7 +4,7 @@
     background-image: url('../../img/jacuzzi.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 55vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -34,4 +34,147 @@
 .landingbtn:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.8);
+}
+
+.empreendimentos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    max-width: 850px;
+    width: 95%;
+}
+
+.itemtitle {
+    font-family: 'recife-display', sans-serif;
+    font-size: 20px;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #000;
+    width: 100%;
+    text-shadow: 1px 1px 5px #7b7b7b;
+}
+
+.itemlogo {
+    display: flex;
+    justify-content: center;
+}
+.itemlogo img {
+    width: 300px;
+}
+
+.itemimg {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.itemimgcontainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+
+.itemarrowleft,
+.itemarrowright {
+    cursor: pointer;
+    position: absolute;
+    width: 45px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.itemarrowleft:hover,
+.itemarrowright:hover {
+    width: 47px;
+}
+
+.itemarrowright {
+    right: 0;
+}
+
+.itemimggallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.itemimgpreview {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.itemimgpreview:hover {
+    cursor: pointer;
+    width: 105px;
+}
+
+.itemimggallery img.selected {
+    border: 2px solid #000;
+    transition: border 0.5s ease;
+}
+
+.itemdesc {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 17px;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.itemlist {
+    display: flex;
+}
+
+.itemlist > :first-child {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.itemlist > :last-child {
+    flex: 1;
+}
+
+.valor {
+    font-family: 'recife-display', sans-serif;
+    font-size: 30px;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-shadow: 1px 1px 5px #7b7b7b;
+}
+
+.subvalor {
+    font-size: 20px;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }

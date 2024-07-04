@@ -3,3 +3,7 @@
 .landingtitle {
     font-size: calc(1vw + 1vh + 6vmin);
 }
+
+.itemlist {
+    font-size: 16px;
+}

@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const queryString = window.location.search;
     if (queryString.includes('1')) {
-        alert('Simulacao enviada com sucesso!');
+        alert('Obrigado! Em breve um de nossos consultores entrar\'a em contato com o resultado da sua simulação!');
     } else if (queryString.includes('0')) {
         alert('Erro ao enviar a simulacao!');
     } else if (queryString.includes('2')) {

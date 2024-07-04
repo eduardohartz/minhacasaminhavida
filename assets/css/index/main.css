@@ -44,6 +44,10 @@
     width: 100%;
 }
 
+body {
+    background-color: #aaa9a2;;
+}
+
 .container {
     max-width: 800px;
     width: 100%;
@@ -54,6 +58,7 @@
     position: relative;
     border-radius: 12px;
     box-shadow: 0 0 19px 0 rgba(0, 0, 0, .1);
+    background-color: #fff;
     font-family: 'centra-no2', sans-serif;
     display: flex;
     flex-wrap: wrap;

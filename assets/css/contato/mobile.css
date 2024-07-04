@@ -3,3 +3,6 @@
 .landingtitle {
     font-size: calc(1vw + 1vh + 6vmin);
 }
+footer {
+    font-size: calc(1vw + 1vh + 0.9vmin);
+}
