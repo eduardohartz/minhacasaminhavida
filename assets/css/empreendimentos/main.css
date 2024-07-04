@@ -2,22 +2,6 @@
 
 .landing {
     background-image: url('../../img/capas/minigolf.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 55vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    font-size: 2em;
-}
-
-.landingtitle {
-    text-align: center;
-    font-family: 'recife-display', sans-serif;
-    font-size: 70px;
-    color: #fff;
 }
 
 .landingbtn {
@@ -145,6 +129,7 @@
     margin-bottom: 10px;
     width: 100%;
 }
+
 .title {
     font-family: 'centra-no2', sans-serif;
     font-size: 19px;

@@ -162,6 +162,25 @@ html {
     cursor: pointer;
 }
 
+.landing {
+    background-size: cover;
+    background-position: center;
+    height: 55vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2em;
+}
+
+.landingtitle {
+    text-align: center;
+    font-family: 'recife-display', sans-serif;
+    font-size: 70px;
+    color: #fff;
+}
+
 .whatsapp {
     width: 70px;
     position: fixed;

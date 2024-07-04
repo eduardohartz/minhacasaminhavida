@@ -6,22 +6,7 @@
 
 .landing {
     background-image: url('../../img/capas/jacuzzi.jpg');
-    background-size: cover;
-    background-position: center;
     height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    font-size: 2em;
-}
-
-.landingtitle {
-    text-align: center;
-    font-family: 'recife-display', sans-serif;
-    font-size: 70px;
-    color: #fff;
 }
 
 .landingbtn {
@@ -45,7 +30,8 @@
 }
 
 body {
-    background-color: #aaa9a2;;
+    background-color: #aaa9a2;
+    ;
 }
 
 .container {

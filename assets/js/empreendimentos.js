@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
-    const totalImages = 25; // Assuming 25 images as per your setup
+    const totalImages = 25;
     let previewsToShow = 7;
 
     function windowAdjust() {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updatePreviews = () => {
         const gallery = document.querySelector('.itemimggallery');
-        gallery.innerHTML = ''; // Clear current previews
+        gallery.innerHTML = '';
 
         let start = currentImageIndex - Math.floor(previewsToShow / 2);
         if (start < 0) start = 0;
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = `assets/img/empreendimentos/saltlake/${i + 1}.jpeg`;
             img.classList.add('itemimgpreview');
             if (i === currentImageIndex) {
-                img.classList.add('selected'); // Add 'selected' class to the current image
+                img.classList.add('selected');
             }
             img.onclick = () => updateMainImage(i);
             gallery.appendChild(img);
@@ -59,27 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const enableTouchScroll = () => {
-        const gallery = document.querySelector('.itemimggallery');
-        gallery.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].pageX;
-        });
-
-        gallery.addEventListener('touchmove', (e) => {
-            e.preventDefault(); // Prevent scrolling the whole page
-            moveX = e.touches[0].pageX - startX;
-            gallery.scrollLeft -= moveX;
-            startX = e.touches[0].pageX;
-        });
-
-        gallery.addEventListener('touchend', () => {
-            // Optional: Implement inertia or snap to image logic here
-        });
-    };
-
     updateMainImage(0);
     initArrows();
     windowAdjust();
     window.addEventListener('resize', windowAdjust);
-    enableTouchScroll();
 });
