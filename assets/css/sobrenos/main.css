@@ -1,9 +1,5 @@
 @import url("../global.css");
 
-.landing {
-    background-image: url('../../img/capas/beach.webp');
-}
-
 .landingtitle {
     text-shadow: 1px 1px 5px #333;
 }
