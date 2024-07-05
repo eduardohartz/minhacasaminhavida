@@ -49,18 +49,31 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.itemarrowleft').addEventListener('click', () => {
             if (currentImageIndex > 0) {
                 updateMainImage(currentImageIndex - 1);
+            } else {
+                updateMainImage(totalImages - 1);
             }
         });
 
         document.querySelector('.itemarrowright').addEventListener('click', () => {
             if (currentImageIndex < totalImages - 1) {
                 updateMainImage(currentImageIndex + 1);
+            } else {
+                updateMainImage(0);
             }
         });
+    };
+
+    const cycleImages = () => {
+        if (currentImageIndex < totalImages - 1) {
+            updateMainImage(currentImageIndex + 1);
+        } else {
+            updateMainImage(0);
+        }
     };
 
     updateMainImage(0);
     initArrows();
     windowAdjust();
     window.addEventListener('resize', windowAdjust);
+    setInterval(cycleImages, 3000);
 });
