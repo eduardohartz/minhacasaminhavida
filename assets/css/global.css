@@ -206,7 +206,7 @@ html {
 footer {
     background-color: #4a4a4a;
     color: #fff;
-    height: 200px;
+    height: 250px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -215,6 +215,12 @@ footer {
     font-family: 'centra-no2', sans-serif;
     display: flex;
     flex-direction: column;
+}
+
+.cnpj {
+    margin-top: 5px;
+    font-size: 15px;
+    color: #9c9c9c;
 }
 
 .footersocial {
