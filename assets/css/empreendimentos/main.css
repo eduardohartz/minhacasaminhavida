@@ -34,7 +34,7 @@
 }
 
 .itemtitle {
-    font-family: 'recife-display', sans-serif;
+    font-family: 'recife-display', Georgia;
     font-size: 20px;
     color: #000;
     margin-top: 20px;
@@ -154,7 +154,7 @@
 }
 
 .valor {
-    font-family: 'recife-display', sans-serif;
+    font-family: 'recife-display', Georgia;
     font-size: 30px;
     color: #000;
     margin-top: 20px;
