@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = start; i < start + previewsToShow; i++) {
             const img = document.createElement('img');
-            img.src = `/cdn-cgi/image/width=100/assets/img/empreendimentos/saltlake/${index + 1}.webp`;
+            img.src = `/cdn-cgi/image/width=850/assets/img/empreendimentos/saltlake/${i + 1}.webp`;
             img.classList.add('itemimgpreview');
             if (i === currentImageIndex) {
                 img.classList.add('selected');
