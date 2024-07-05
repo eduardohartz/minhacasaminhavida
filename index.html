@@ -30,8 +30,8 @@
     <link rel="stylesheet" href="/assets/css/index/main.css">
     <link rel="stylesheet" href="/assets/css/index/mobile.css" media="screen and (max-width: 900px)">
     <link rel="icon" type="image/x-icon" href="/assets/img/icons/icon.ico">
-    <script src="/assets/js/global.js"></script>
-    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/global.js" defer></script>
+    <script src="/assets/js/index.js" defer></script>
     <script src="https://www.google.com/recaptcha/api.js" defer></script>
 </head>
 
@@ -43,7 +43,7 @@
             <a href="/#"><button class="navbtn selected">Home</button></a>
             <a href="/sobrenos.html"><button class="navbtn">Sobre nós</button></a>
             <a href="/empreendimentos.html"><button class="navbtn">Empreendimentos</button></a>
-            <button class="navbtn" onclick="simulador()">Simule seu crédito</button>
+            <a href="/#simulador"><button class="navbtn">Simule seu crédito</button></a>
             <a href="/contato.html"><button class="navbtn">Contato</button></a>
         </div>
         <img alt="imagem" src="/assets/img/utils/menu.webp" class="navmenubtn" id="navmenubtn">
@@ -54,7 +54,7 @@
             <a href="/#"><button class="menubtn selected">Home</button></a>
             <a href="/sobrenos.html"><button class="menubtn">Sobre nós</button></a>
             <a href="/empreendimentos.html"><button class="menubtn">Empreendimentos</button></a>
-            <button class="menubtn" onclick="simulador()">Simule seu crédito</button>
+            <a href="/#simulador"><button class="menubtn">Simule seu crédito</button></a>
             <a href="/contato.html"><button class="menubtn">Contato</button></a>
         </div>
     </div>
@@ -71,7 +71,7 @@
             class="landingimg"
         />
         <span class="landingtitle">Você merece conforto e tranquilidade.</span>
-        <button class="landingbtn" onclick="simulador()">Simule seu crédito</button>
+        <a href="/#simulador"><button class="landingbtn">Simule seu crédito</button></a>
     </div>
     <div class="simulador" id="simulador">
         <div class="container">

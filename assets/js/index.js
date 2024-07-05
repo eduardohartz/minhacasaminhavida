@@ -59,17 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
-
-function simulador() {
-    modal.style.animation = "slideOutToRight 0.2s forwards";
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-
-    document.getElementById('simulador').scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
 function onSubmit(token) {
     document.getElementById("form").submit();
 }
