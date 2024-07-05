@@ -79,23 +79,23 @@
             <form action="https://api.minhacasaminhavidars.com.br/form.php" method="POST" id="form">
                 <div class="item">
                     <label for="nome">Nome<font color="red">*</font></label><br>
-                    <input type="text" class="input" name="nome" required>
+                    <input type="text" class="input" name="nome" id="nome" required>
                 </div>
                 <div class="item">
                     <label for="email">E-Mail<font color="red">*</font></label><br>
-                    <input type="email" class="input" name="email" required>
+                    <input type="email" class="input" name="email" id="email" required>
                 </div>
                 <div class="item">
                     <label for="telefone">Telefone<font color="red">*</font></label><br>
-                    <input type="text" class="input" name="telefone" value="+55" required>
+                    <input type="text" class="input" name="telefone" id="telefone" value="+55" required>
                 </div>
                 <div class="item">
                     <label for="cpf">CPF<font color="red">*</font></label><br>
-                    <input type="text" class="input" name="cpf" required>
+                    <input type="text" class="input" name="cpf" id="cpf" required>
                 </div>
                 <div class="item">
                     <label for="renda">Renda (Exceto bolsa familia)<font color="red">*</font></label><br>
-                    <select name="renda" class="input" required>
+                    <select name="renda" class="input" id="renda" required>
                         <option value="">—Escolha uma opção—</option>
                         <option value="">Só tenho bolsa familia</option>
                         <option value="Ate R$ 2.800,000">Até R$ 2.800,00</option>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="item">
                     <label for="estadocivil">Estado Civil<font color="red">*</font></label><br>
-                    <select name="estadocivil" class="input" required>
+                    <select name="estadocivil" class="input" id="estadocivil" required>
                         <option value="">—Escolha uma opção—</option>
                         <option value="Solteiro">Solteiro(a)</option>
                         <option value="Casado">Casado(a)</option>
