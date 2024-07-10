@@ -66,8 +66,8 @@ html {
 }
 
 .navlogo {
-    width: 200px;
-    margin-left: 70px;
+    width: 230px;
+    margin-left: 55px;
 }
 
 .navbtns {
@@ -218,6 +218,7 @@ footer {
     font-family: 'centra-no2', sans-serif;
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .cnpj {

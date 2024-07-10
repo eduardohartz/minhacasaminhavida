@@ -25,6 +25,27 @@
     margin-top: 20px;
 }
 
+.selector {
+    font-family: 'centra-no2', sans-serif;
+    max-width: 850px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.selector select {
+    height: 28px;
+    width: 215px;
+    border-radius: 5px;
+    border: solid 1px #333;
+    background-color: #fff;
+}
+
+.selector select:hover {
+    cursor: pointer;
+}
+
 .item {
     display: flex;
     flex-direction: column;
@@ -153,21 +174,32 @@
     flex: 1;
 }
 
-.valor {
-    font-family: 'recife-display', Georgia;
-    font-size: 30px;
-    color: #000;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    text-shadow: 1px 1px 5px #7b7b7b;
-}
-
-.subvalor {
+.analise {
     font-size: 20px;
     color: #000;
     margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'centra-no2', sans-serif;
+}
+
+.small {
+    font-size: 15px;
+    color: #000;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'centra-no2', sans-serif;
+}
+
+#noitems {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 20px;
+    color: #000;
+    margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
