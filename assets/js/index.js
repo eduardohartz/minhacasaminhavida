@@ -47,14 +47,16 @@ document.addEventListener('DOMContentLoaded', function () {
         e.target.value = formattedInputValue;
     });
 
-    const queryString = window.location.search;
-    if (queryString.includes('1')) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sucesso = urlParams.get('sucesso');
+
+    if (sucesso.includes('1')) {
         alert('Obrigado! Em breve um de nossos consultores entrar\'a em contato com o resultado da sua simulação!');
-    } else if (queryString.includes('0')) {
+    } else if (sucesso.includes('0')) {
         alert('Erro ao enviar a simulaçao! Mande um email para contato@minhacasaminhavidars.com.br [0]');
-    } else if (queryString.includes('2')) {
+    } else if (sucesso.includes('2')) {
         alert('Você precisa preencher todos os campos!');
-    } else if (queryString.includes('3')) {
+    } else if (sucesso.includes('3')) {
         alert('Erro ao enviar a simulaçao! Mande um email para contato@minhacasaminhavidars.com.br [3]');
     }
 

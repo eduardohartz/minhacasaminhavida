@@ -1,0 +1,172 @@
+@import url("../global.css");
+
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
+.landing {
+    height: 76vh;
+}
+
+.landingtitle {
+    font-size: 40px;
+    width: 78%;
+}
+
+.landingsub {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 26px !important;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+    width: 80%;
+    text-shadow: 3px 3px 5px #000;
+}
+
+.landing font {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.landingbtn:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.simulador {
+    width: 100%;
+}
+
+body {
+    background-color: #aaa9a2;
+    ;
+}
+
+.seguro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 6vh;
+    gap: 10px;
+}
+
+.seguro div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.seguro .lock {
+    width: 20px;
+}
+
+.seguro span {
+    text-align: center;
+    color: #fff;
+    font-family: 'centra-no2', sans-serif;
+    text-decoration: underline;
+}
+
+.seguro span:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    top: 12vh;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 0 19px 0 rgba(0, 0, 0, .1);
+    background-color: #fff;
+    font-family: 'centra-no2', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 200px;
+}
+
+.container span {
+    text-align: center;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    font-size: 20px;
+    border-bottom: solid 1px;
+    width: 250px;
+}
+
+.container form {
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.container .item {
+    flex: 1 1 auto;
+    max-width: calc(33.33% - 20px);
+    min-width: 150px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.item input[type="file"] {
+    height: 25px;
+    width: 210px;
+    margin-top: 5px;
+}
+
+.radio-option input,
+.radio-option label {
+    cursor: pointer;
+
+}
+
+.item select {
+    height: 28px;
+    width: 215px;
+    border-radius: 5px;
+    border: solid 1px #333;
+    background-color: #fff;
+}
+
+.radio-option {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.container button {
+    text-align: center;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+    font-family: 'centra-no2', sans-serif;
+    border: none;
+    width: 210px;
+    height: 60px;
+    font-size: 16px;
+    background-color: #575757;
+    margin-top: 30px;
+    color: #fff;
+}
+
+.container button:hover {
+    cursor: pointer;
+    background-color: #6b6b6b;
+}
+
+.question:hover {
+    cursor: pointer;
+}
