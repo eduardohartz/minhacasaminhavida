@@ -51,7 +51,7 @@ body {
     margin-bottom: 200px;
 }
 
-.container span {
+.container .title {
     text-align: center;
     left: 50%;
     position: absolute;
@@ -123,4 +123,8 @@ body {
 .container button:hover {
     cursor: pointer;
     background-color: #6b6b6b;
+}
+
+.red {
+    color: red;
 }
