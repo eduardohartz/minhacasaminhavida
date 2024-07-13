@@ -1,5 +1,9 @@
 @import url("../global.css");
 
+.landingimg {
+    object-position: bottom;
+}
+
 .landingbtn {
     font-family: 'centra-no2', sans-serif;
     background-color: rgba(255, 255, 255, 0.6);

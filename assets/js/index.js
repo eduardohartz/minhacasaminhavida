@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sucesso = urlParams.get('sucesso');
 
     if (sucesso.includes('1')) {
-        alert('Obrigado! Em breve um de nossos consultores entrar\'a em contato com o resultado da sua simulação!');
+        alert('Obrigado! Em breve um de nossos consultores entrará em contato com o resultado da sua simulação!');
     } else if (sucesso.includes('0')) {
         alert('Erro ao enviar a simulaçao! Mande um email para contato@minhacasaminhavidars.com.br [0]');
     } else if (sucesso.includes('2')) {

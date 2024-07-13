@@ -60,20 +60,50 @@
     </div>
     <div class="landing">
         <img alt="imagem" srcset="
-            /assets/img/capas/jacuzzi320.webp   320w,
-            /assets/img/capas/jacuzzi640.webp   640w,
-            /assets/img/capas/jacuzzi960.webp   960w,
-            /assets/img/capas/jacuzzi1920.webp 1920w,
-            /assets/img/capas/jacuzzi2560.webp 2560w,
-            /assets/img/capas/jacuzzi3440.webp 3440w
+            /assets/img/capas/minigolf320.webp   320w,
+            /assets/img/capas/minigolf640.webp   640w,
+            /assets/img/capas/minigolf960.webp   960w,
+            /assets/img/capas/minigolf1920.webp 1920w,
+            /assets/img/capas/minigolf2560.webp 2560w,
+            /assets/img/capas/minigolf3440.webp 3440w
             "
-            src="/assets/img/capas/jacuzzi1920.webp"
+            src="/assets/img/capas/minigolf1920.webp"
             class="landingimg"
         />
-        <span class="landingtitle">Muito Obrigado, em breve um de nossos consultores entrar'a em contato</span>
-        <span class="landingsub">Passo opcional: envie seus documentos para agilizar o processo da sua analise completa e ganhe um <font>bonus de R$ 1.000 reais</font> na compra do seu imóvel.</span>
+        <span class="landingtitle">Muito Obrigado, em breve um de nossos consultores entrará em contato</span>
+        <span class="landingsub">Passo opcional: envie seus documentos para agilizar o processo da sua análise e garanta um <span class="bonus">bônus de R$ 1.000,00*</span></span>
+        <span class="small">* Na compra do seu imóvel</span>
     </div>
     <div class="simulador" id="simulador">
+        <div class="container">
+            <span class="title">Envio de documentos</span>
+            <form action="https://api.minhacasaminhavidars.com.br/docs.php" method="POST" id="form" enctype="multipart/form-data">
+                <div class="items">
+                    <div class="item">
+                        <label for="identificacao">Habilitação ou identidade e cpf<span class="red">*</span></label><br>
+                        <input type="file" class="input" name="identificacao" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="identificacao" required>
+                    </div>
+                    <div class="item">
+                        <label for="impostoderenda">Imposto de renda, <u>se declarado</u></label><br>
+                        <input type="file" class="input" name="impostoderenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="impostoderenda">
+                    </div>
+                    <div class="item">
+                        <label for="comprovantederesidencia">Comprovante de residência<span class="red">*</span></label><br>
+                        <input type="file" class="input" name="comprovantederesidencia" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederesidencia" required>
+                    </div>
+                    <div class="item" id="assalariado">
+                        <label for="comprovantederenda">Assalariado: 3 últimos contracheques<span class="red">*</span></label><br>
+                        <input type="file" class="input" name="comprovantederenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederenda">
+                    </div>
+                    <div class="item" id="autonomo">
+                        <label for="comprovantederenda">Autônomo: Prolabore ou extrato bancário (6 meses)<span class="red">*</span></label><br>
+                        <input type="file" class="input" name="comprovantederenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederenda">
+                    </div>
+                </div>
+                <input type="hidden" name="simulacao" id="simulacao">
+                <button class="g-recaptcha" data-sitekey="6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR" data-callback='onSubmit' data-action='submit'>Enviar Documentos</button>
+            </form>
+        </div>
         <div class="seguro">
             <div>
                 <img src="/assets/img/icons/padlock.webp" class="lock">
@@ -83,36 +113,6 @@
                 <a href="https://www.rapidssl.com/" target="_blank"><img alt='imagem' width='80px' src='https://www.ssl2buy.com/RapidSSL_SEAL-90x50.gif'></a>
                 <a href="https://transparencyreport.google.com/safe-browsing/search?url=minhacasaminhavidars.com.br&hl=pt_BR" target="_blank"><img alt='imagem' width='110px' src='/assets/img/icons/googleverif.webp'></a>
             </div>
-        </div>
-        <div class="container">
-            <span class="title">Upload de documentos</span>
-            <form action="https://api.minhacasaminhavidars.com.br/testdocs.php" method="POST" id="form" enctype="multipart/form-data">
-                <div class="items">
-                    <div class="item">
-                        <label for="identificacao">Habilitação ou identidade e cpf<span class="red">*</span></label><br>
-                        <input type="file" class="input" name="identificacao" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="identificacao" required>
-                    </div>
-                    <div class="item">
-                        <label for="impostoderenda">Imposto de renda se declarado</label><br>
-                        <input type="file" class="input" name="impostoderenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="impostoderenda">
-                    </div>
-                    <div class="item">
-                        <label for="comprovantederesidencia">Comprovante de residencia<span class="red">*</span></label><br>
-                        <input type="file" class="input" name="comprovantederesidencia" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederesidencia" required>
-                    </div>
-                    <div class="item" id="assalariado">
-                        <label for="comprovantederenda">Assalariado: 3 ultimos contracheques<span class="red">*</span></label><br>
-                        <input type="file" class="input" name="comprovantederenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederenda">
-                    </div>
-                    <div class="item" id="autonomo">
-                        <label for="comprovantederenda">Autonomo: Prolabore ou extrato bancário (6 meses)<span class="red">*</span></label><br>
-                        <input type="file" class="input" name="comprovantederenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederenda">
-                    </div>
-                </div>
-                <input type="hidden" name="simulacao" id="simulacao">
-                <button type="submit">Fazer Upload</button>
-                <!-- <button class="g-recaptcha" data-sitekey="6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR" data-callback='onSubmit' data-action='submit'>Fazer Upload</button> -->
-            </form>
         </div>
     </div>
     <footer>

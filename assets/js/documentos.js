@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (id) {
         input.value = id;
-    } else if (!sucesso) {
+    } else if (!sucesso || sucesso == "") {
         window.location.href = '/?sucesso=0';
     }
 
@@ -28,9 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    if (sucesso.includes('1')) {
-        alert('Upload realizado! Em breve um de nossos consultores entrar\'a em contato com o resultado da sua simulação');
-    } else if (sucesso.includes('0')) {
+    if (sucesso.includes('0')) {
         alert('Erro ao enviar os documentos! Mande um email para contato@minhacasaminhavidars.com.br [0]');
     } else if (sucesso.includes('2')) {
         alert('Você precisa preencher todos os campos!');
