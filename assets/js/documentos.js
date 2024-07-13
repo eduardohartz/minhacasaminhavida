@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (id) {
         input.value = id;
-    } else if (sucesso == "" || !sucesso) {
-        //window.location.href = '/?sucesso=0';
+    } else if (!sucesso) {
+        window.location.href = '/?sucesso=0';
     }
 
     if (emprego) {
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
 function onSubmit(token) {
     document.getElementById("form").submit();
 }
