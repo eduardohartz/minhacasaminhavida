@@ -1,7 +1,11 @@
 @import url("../gmobile.css");
 
 .landingtitle {
-    font-size: calc(1vw + 1vh + 6vmin);
+    font-size: calc(1vw + 1vh + 5vmin);
+}
+
+.landingsub {
+    font-size: calc(1vw + 1vh + 4vmin);
 }
 
 .container {
@@ -18,13 +22,6 @@
 .container .item {
     width: 100%;
     max-width: 100%;
-}
-
-.container button {
-    align-self: center;
-    position: static;
-    left: 0;
-    transform: translate(0);
 }
 
 .item input[type="text"],
