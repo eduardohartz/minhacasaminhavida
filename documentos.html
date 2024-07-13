@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:url" content="https://minhacasaminhavidars.com.br/documentos">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Envio de documentos - Minha Casa Minha Vida RS">
+    <meta name="og:description" content="Conheça Minha Casa Minha Vida RS, uma equipe especializada no programa Minha Casa Minha Vida em parceria exclusiva com a Lyx Engenharia.">
+    <meta property="og:image" content="https://i.imgur.com/O1GaszB.png">
+
+    <meta property="url" content="https://minhacasaminhavidars.com.br/documentos">
+    <meta property="type" content="website">
+    <meta property="title" content="Envio de documentos - Minha Casa Minha Vida RS">
+    <meta name="description" content="Conheça Minha Casa Minha Vida RS, uma equipe especializada no programa Minha Casa Minha Vida em parceria exclusiva com a Lyx Engenharia.">
+    <meta property="image" content="https://i.imgur.com/O1GaszB.png">
+    <meta name="keywords" content="imoveis em Porto Alegre, imoveis em Cachoeirinha, minha casa minha vida, minha casa minha vida porto alegre, minha casa minha vida rs, primeiro imovel, financiamento caixa, apartamento minha casa minha vida, apartamentos financiados pela caixa">
+    
+    <meta name="theme-color" content="#aaa9a2">
+    <meta name="robots" content="">
+    <meta name="revisit-after" content="1 day">
+    <meta name="language" content="Portuguese">
+    <meta name="generator" content="N/A">
+    <meta name="darkreader-lock">
+
+    <title>Envio de documentos - Minha Casa Minha Vida RS</title>
+    <link rel="stylesheet" href="/assets/css/documentos/main.css">
+    <link rel="stylesheet" href="/assets/css/documentos/mobile.css" media="screen and (max-width: 900px)">
+    <link rel="icon" type="image/x-icon" href="/assets/img/icons/icon.ico">
+    <script src="/assets/js/global.js" defer></script>
+    <script src="/assets/js/documentos.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" defer></script>
+</head>
+
+<body>
+    <a href="https://wa.me/5551996472163" target="_blank"><img alt="imagem" class="whatsapp" src="/assets/img/icons/whatsapp.webp"></a>
+    <div class="navbar">
+        <a href="/#"><img alt="imagem" src="/assets/img/icons/logo.webp" class="navlogo"></a>
+        <div class="navbtns">
+            <a href="/#"><button class="navbtn">Home</button></a>
+            <a href="/sobrenos"><button class="navbtn">Sobre nós</button></a>
+            <a href="/empreendimentos"><button class="navbtn">Empreendimentos</button></a>
+            <a href="/#simulador"><button class="navbtn">Simule seu crédito</button></a>
+            <a href="/contato"><button class="navbtn">Contato</button></a>
+        </div>
+        <img alt="imagem" src="/assets/img/utils/menu.webp" class="navmenubtn" id="navmenubtn">
+    </div>
+    <div id="modal" class="modal">
+        <img alt="imagem" src="/assets/img/utils/close.webp" class="close">
+        <div class="modal-content">
+            <a href="/#"><button class="menubtn">Home</button></a>
+            <a href="/sobrenos"><button class="menubtn">Sobre nós</button></a>
+            <a href="/empreendimentos"><button class="menubtn">Empreendimentos</button></a>
+            <a href="/#simulador"><button class="menubtn">Simule seu crédito</button></a>
+            <a href="/contato"><button class="menubtn">Contato</button></a>
+        </div>
+    </div>
+    <div class="landing">
+        <img alt="imagem" srcset="
+            /assets/img/capas/minigolf320.webp   320w,
+            /assets/img/capas/minigolf640.webp   640w,
+            /assets/img/capas/minigolf960.webp   960w,
+            /assets/img/capas/minigolf1920.webp 1920w,
+            /assets/img/capas/minigolf2560.webp 2560w,
+            /assets/img/capas/minigolf3440.webp 3440w
+            "
+            src="/assets/img/capas/minigolf1920.webp"
+            class="landingimg"
+        />
+        <span class="landingtitle">Muito Obrigado, em breve um de nossos consultores entrará em contato</span>
+        <span class="landingsub">Passo opcional: envie seus documentos para agilizar o processo da sua análise e garanta um <span class="bonus">bônus de R$ 1.000,00*</span></span>
+        <span class="small">* Na compra do seu imóvel</span>
+    </div>
+    <div class="simulador" id="simulador">
+        <div class="container">
+            <span class="title">Envio de documentos</span>
+            <form action="https://api.minhacasaminhavidars.com.br/docs.php" method="POST" id="form" enctype="multipart/form-data">
+                <div class="items">
+                    <div class="item">
+                        <label for="identificacao">Habilitação ou identidade e cpf<span class="red">*</span></label><br>
+                        <input type="file" class="input" name="identificacao" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="identificacao" required>
+                    </div>
+                    <div class="item">
+                        <label for="impostoderenda">Imposto de renda, <u>se declarado</u></label><br>
+                        <input type="file" class="input" name="impostoderenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="impostoderenda">
+                    </div>
+                    <div class="item">
+                        <label for="comprovantederesidencia">Comprovante de residência<span class="red">*</span></label><br>
+                        <input type="file" class="input" name="comprovantederesidencia" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederesidencia" required>
+                    </div>
+                    <div class="item" id="assalariado">
+                        <label for="comprovantederenda">Assalariado: 3 últimos contracheques<span class="red">*</span></label><br>
+                        <input type="file" class="input" name="comprovantederenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederenda">
+                    </div>
+                    <div class="item" id="autonomo">
+                        <label for="comprovantederenda">Autônomo: Prolabore ou extrato bancário (6 meses)<span class="red">*</span></label><br>
+                        <input type="file" class="input" name="comprovantederenda" accept=".jpg,.jpeg,.png,.gif,.heic,.avif,.webp,.pdf" id="comprovantederenda">
+                    </div>
+                </div>
+                <input type="hidden" name="simulacao" id="simulacao">
+                <button class="g-recaptcha" data-sitekey="6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR" data-callback='onSubmit' data-action='submit'>Enviar Documentos</button>
+            </form>
+        </div>
+        <div class="seguro">
+            <div>
+                <img src="/assets/img/icons/padlock.webp" class="lock">
+                <a href="https://transparencyreport.google.com/safe-browsing/search?url=minhacasaminhavidars.com.br&hl=pt_BR" target="_blank"><span>Descubra por que esse site é seguro</span></a>
+            </div>
+            <div>
+                <a href="https://www.rapidssl.com/" target="_blank"><img alt='imagem' width='80px' src='https://www.ssl2buy.com/RapidSSL_SEAL-90x50.gif'></a>
+                <a href="https://transparencyreport.google.com/safe-browsing/search?url=minhacasaminhavidars.com.br&hl=pt_BR" target="_blank"><img alt='imagem' width='110px' src='/assets/img/icons/googleverif.webp'></a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span>&copy; 2024 Minha Casa Minha Vida RS - contato@minhacasaminhavidars.com.br</span>
+        <span class="cnpj">48.460.508/0001-07</span>
+        <div>
+            <a href="https://wa.me/5551996472163" target="_blank"><img alt="imagem" src="/assets/img/icons/whatsapp.webp" class="footersocial"></a>
+            <a href="https://instagram.com/novominhacasaminhavidars" target="_blank"><img alt="imagem" src="/assets/img/icons/instagram.webp" class="footersocial"></a>
+            <a href="mailto:contato@minhacasaminhavidars.com.br" target="_blank"><img alt="imagem" src="/assets/img/icons/email.webp" class="footersocial"></a>
+            <a href="https://www.youtube.com/@ConstrutoraLyxEngenharia" target="_blank"><img alt="imagem" src="/assets/img/icons/youtube.webp" class="footersocial"></a>
+        </div>
+        <a href="/#"><img alt="imagem" src="/assets/img/icons/icon.webp" class="footericon"></a>
+    </footer>
+</body>
+
+</html>
