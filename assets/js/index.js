@@ -65,10 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function onSubmit(token) {
-    document.getElementById("submit").setAttribute('disabled', 'true');
     document.getElementById("form").submit();
-    setTimeout(() => {
-        document.getElementById("submit").removeAttribute('disabled');
-    }, 2000);
 }
 
