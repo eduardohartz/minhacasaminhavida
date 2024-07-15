@@ -50,18 +50,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const sucesso = urlParams.get('sucesso');
 
-    if (sucesso.includes('1')) {
-        alert('Obrigado! Em breve um de nossos consultores entrará em contato com o resultado da sua simulação!');
-    } else if (sucesso.includes('0')) {
-        alert('Erro ao enviar a simulação! Mande um email para contato@minhacasaminhavidars.com.br [0]');
-    } else if (sucesso.includes('2')) {
-        alert('Você precisa preencher todos os campos!');
-    } else if (sucesso.includes('3')) {
-        alert('Erro ao enviar a simulaçao! Mande um email para contato@minhacasaminhavidars.com.br [3]');
+    if (sucesso) {
+        if (sucesso.includes('1')) {
+            alert('Obrigado! Em breve um de nossos consultores entrará em contato com o resultado da sua simulação!');
+        } else if (sucesso.includes('0')) {
+            alert('Erro ao enviar a simulação! Mande um email para contato@minhacasaminhavidars.com.br [0]');
+        } else if (sucesso.includes('2')) {
+            alert('Você precisa preencher todos os campos!');
+        } else if (sucesso.includes('3')) {
+            alert('Erro ao enviar a simulaçao! Mande um email para contato@minhacasaminhavidars.com.br [3]');
+        }
     }
 
 });
+
 function onSubmit(token) {
+    document.getElementById("submit").setAttribute('disabled', 'true');
     document.getElementById("form").submit();
+    setTimeout(() => {
+        document.getElementById("submit").removeAttribute('disabled');
+    }, 2000);
 }
 

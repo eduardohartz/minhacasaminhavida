@@ -28,17 +28,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    if (sucesso.includes('0')) {
-        alert('Erro ao enviar os documentos! Mande um email para contato@minhacasaminhavidars.com.br [0]');
-    } else if (sucesso.includes('2')) {
-        alert('Você precisa preencher todos os campos!');
-    } else if (sucesso.includes('3')) {
-        alert('Erro ao enviar os documentos! Mande um email para contato@minhacasaminhavidars.com.br [3]');
+    if(sucesso) {
+        if (sucesso.includes('0')) {
+            alert('Erro ao enviar os documentos! Mande um email para contato@minhacasaminhavidars.com.br [0]');
+        } else if (sucesso.includes('2')) {
+            alert('Você precisa preencher todos os campos!');
+        } else if (sucesso.includes('3')) {
+            alert('Erro ao enviar os documentos! Mande um email para contato@minhacasaminhavidars.com.br [3]');
+        }
     }
 
 });
 
 function onSubmit(token) {
+    document.getElementById("submit").setAttribute('disabled', 'true');
     document.getElementById("form").submit();
+    setTimeout(() => {
+        document.getElementById("submit").removeAttribute('disabled');
+    }, 2000);
 }
 
