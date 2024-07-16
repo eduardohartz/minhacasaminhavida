@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.getElementById('button').addEventListener('click', function(event) {
     var rendaValue = document.getElementById('renda').value;
 
-    if (rendaValue === 'Só tenho bolsa família') {
+    if (rendaValue === 'Só tenho bolsa familia') {
         alert('Se a renda familiar for SOMENTE do Bolsa Família, nāo conseguiremos dar seguimento na sua simulação. Entre em contato via whatsapp.');
         event.preventDefault();
         return;
@@ -82,8 +82,8 @@ document.getElementById('button').addEventListener('click', function(event) {
             document.getElementById('form').appendChild(input);
             
             document.getElementById('button').disabled = true;
-            
-            document.getElementById('form').submit();
+            console.log("clicked")
+            //document.getElementById('form').submit();
         });
     });
 });
