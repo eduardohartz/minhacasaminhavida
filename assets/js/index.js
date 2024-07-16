@@ -64,26 +64,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-document.getElementById('button').addEventListener('click', function(event) {
+document.getElementById('button').addEventListener('click', function (event) {
     var rendaValue = document.getElementById('renda').value;
+    const form = document.getElementById('form');
 
-    if (rendaValue === 'Só tenho bolsa familia') {
-        alert('Se a renda familiar for SOMENTE do Bolsa Família, nāo conseguiremos dar seguimento na sua simulação. Entre em contato via whatsapp.');
-        event.preventDefault();
+    if (form.reportValidity()) {
+        if (rendaValue === 'Só tenho bolsa familia') {
+            alert('Se a renda familiar for SOMENTE do Bolsa Família, nāo conseguiremos dar seguimento na sua simulação. Entre em contato via whatsapp.');
+            event.preventDefault();
+            return;
+        }
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR', { action: 'submit' }).then(function (token) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'hidden');
+                input.setAttribute('name', 'g-recaptcha-response');
+                input.setAttribute('value', token);
+                form.appendChild(input);
+
+                document.getElementById('button').disabled = true;
+                console.log("disabled")
+
+                form.submit();
+            });
+        });
+    } else {
         return;
     }
-
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR', { action: 'submit' }).then(function(token) {
-            var input = document.createElement('input');
-            input.setAttribute('type', 'hidden');
-            input.setAttribute('name', 'g-recaptcha-response');
-            input.setAttribute('value', token);
-            document.getElementById('form').appendChild(input);
-            
-            document.getElementById('button').disabled = true;
-            console.log("clicked")
-            //document.getElementById('form').submit();
-        });
-    });
 });

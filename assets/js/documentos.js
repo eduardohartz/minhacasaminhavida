@@ -40,7 +40,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function onSubmit(token) {
-    document.getElementById("form").submit();
-}
+document.getElementById('button').addEventListener('click', function (event) {
+    const form = document.getElementById('form');
 
+    if (form.reportValidity()) {
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR', { action: 'submit' }).then(function (token) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'hidden');
+                input.setAttribute('name', 'g-recaptcha-response');
+                input.setAttribute('value', token);
+                form.appendChild(input);
+
+                document.getElementById('button').disabled = true;
+                console.log("disabled")
+
+                form.submit();
+            });
+        });
+    } else {
+        return;
+    }
+});
