@@ -64,7 +64,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function onSubmit(token) {
-    document.getElementById("form").submit();
-}
+document.getElementById('button').addEventListener('click', function(event) {
+    var rendaValue = document.getElementById('renda').value;
 
+    if (rendaValue === 'Só tenho bolsa família') {
+        alert('Se a renda familiar for SOMENTE do Bolsa Família, nāo conseguiremos dar seguimento na sua simulação. Entre em contato via whatsapp.');
+        event.preventDefault();
+        return;
+    }
+
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdNDwYqAAAAALuUlD8MtXV0bl-0jujUuDdQ4bUR', { action: 'submit' }).then(function(token) {
+            var input = document.createElement('input');
+            input.setAttribute('type', 'hidden');
+            input.setAttribute('name', 'g-recaptcha-response');
+            input.setAttribute('value', token);
+            document.getElementById('form').appendChild(input);
+            
+            document.getElementById('button').disabled = true;
+            
+            document.getElementById('form').submit();
+        });
+    });
+});
