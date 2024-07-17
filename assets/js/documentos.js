@@ -32,9 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (sucesso.includes('0')) {
             alert('Erro ao enviar os documentos! Mande um email para contato@minhacasaminhavidars.com.br [0]');
         } else if (sucesso.includes('2')) {
-            alert('Você precisa preencher todos os campos!');
+            alert('Você precisa preencher todos os campos! [2]');
         } else if (sucesso.includes('3')) {
             alert('Erro ao enviar os documentos! Mande um email para contato@minhacasaminhavidars.com.br [3]');
+        } else if (sucesso.includes('4')) {
+            alert('Você só pode enviar imagens e documentos pdf! [4]');
         }
     }
 
