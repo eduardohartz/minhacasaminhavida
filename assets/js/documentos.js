@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (emprego) {
-        if (emprego == 'Assalariado') {
+        if (emprego == 'CLT') {
             autonomo.style.visibility = "hidden";
             autonomo.hidden = true;
             assalariado.querySelector("input").setAttribute("required", "");
-        } else if (emprego == 'Autonomo') {
+        } else if (emprego == 'AUTONOMO') {
             assalariado.style.visibility = "hidden";
             assalariado.hidden = true;
             autonomo.querySelector("input").setAttribute("required", "");
