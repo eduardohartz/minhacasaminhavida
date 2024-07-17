@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Update items
 
     const select = document.getElementById("cidade");
 
