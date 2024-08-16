@@ -128,3 +128,11 @@ body {
 .red {
     color: red;
 }
+
+a {
+    color: #fff;
+}
+
+a:visited {
+    color: #fff;
+}
