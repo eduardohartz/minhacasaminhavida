@@ -239,3 +239,11 @@ footer {
     margin-top: 10px;
     margin-right: 5px;
 }
+
+a {
+    color: #fff;
+}
+
+a:visited {
+    color: #fff;
+}
