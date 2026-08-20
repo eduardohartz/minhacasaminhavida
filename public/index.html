@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:url" content="https://minhacasaminhavidars.com.br/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Minha Casa Minha Vida RS">
+    <meta property="og:title" content="Home - Minha Casa Minha Vida RS">
+    <meta name="og:description"
+        content="Minha Casa Minha Vida 2026: renda de até R$ 13 mil, imóveis de até R$ 600 mil e juros a partir de 4% ao ano. Descubra em segundos se você se enquadra e saia do aluguel.">
+    <meta property="og:image" content="https://i.imgur.com/O1GaszB.png">
+
+    <meta property="url" content="https://minhacasaminhavidars.com.br/">
+    <meta property="type" content="website">
+    <meta property="title" content="Home - Minha Casa Minha Vida RS">
+    <meta name="description"
+        content="Minha Casa Minha Vida 2026: renda de até R$ 13 mil, imóveis de até R$ 600 mil e juros a partir de 4% ao ano. Descubra em segundos se você se enquadra e saia do aluguel.">
+    <meta property="image" content="https://i.imgur.com/O1GaszB.png">
+    <meta name="keywords"
+        content="imoveis em Porto Alegre, imoveis em Cachoeirinha, minha casa minha vida, minha casa minha vida 2026, minha casa minha vida porto alegre, minha casa minha vida rs, faixa 4 classe media, primeiro imovel, financiamento caixa, apartamento minha casa minha vida, apartamentos financiados pela caixa">
+
+    <meta name="theme-color" content="#aaa9a2">
+    <meta name="robots" content="">
+    <meta name="revisit-after" content="1 day">
+    <meta name="language" content="Portuguese">
+    <meta name="generator" content="N/A">
+    <meta name="darkreader-lock">
+
+    <link rel="stylesheet" href="/assets/css/index/main.css">
+    <link rel="stylesheet" href="/assets/css/index/mobile.css" media="screen and (max-width: 900px)">
+    <link rel="icon" type="image/x-icon" href="/assets/img/icons/icon.ico">
+    <title>Home - Minha Casa Minha Vida RS</title>
+    <script src="/assets/js/global.js" defer></script>
+    <script src="/assets/js/index.js" defer></script>
+</head>
+
+<body>
+    <a href="https://wa.me/5551995058194" target="_blank" rel="noopener noreferrer"><img alt="imagem" class="whatsapp"
+            src="/assets/img/icons/whatsapp.webp"></a>
+    <div class="navbar">
+        <a href="/#"><img alt="imagem" src="/assets/img/icons/logo.webp" class="navlogo"></a>
+        <div class="navbtns">
+            <a href="/#"><button class="navbtn selected">Home</button></a>
+            <a href="/sobrenos"><button class="navbtn">Sobre nós</button></a>
+            <a href="/empreendimentos"><button class="navbtn">Empreendimentos</button></a>
+            <a href="/#simulador"><button class="navbtn">Simule seu crédito</button></a>
+            <a href="/contato"><button class="navbtn">Contato</button></a>
+        </div>
+        <img alt="imagem" src="/assets/img/utils/menu.webp" class="navmenubtn" id="navmenubtn">
+    </div>
+    <div id="modal" class="modal">
+        <img alt="imagem" src="/assets/img/utils/close.webp" class="close">
+        <div class="modal-content">
+            <a href="/#"><button class="menubtn selected">Home</button></a>
+            <a href="/sobrenos"><button class="menubtn">Sobre nós</button></a>
+            <a href="/empreendimentos"><button class="menubtn">Empreendimentos</button></a>
+            <a href="/#simulador"><button class="menubtn">Simule seu crédito</button></a>
+            <a href="/contato"><button class="menubtn">Contato</button></a>
+        </div>
+    </div>
+    <div class="landing">
+        <img alt="imagem" srcset="
+            /assets/img/capas/jacuzzi230.webp   230w,
+            /assets/img/capas/jacuzzi640.webp   640w,
+            /assets/img/capas/jacuzzi960.webp   960w,
+            /assets/img/capas/jacuzzi1920.webp 1920w,
+            /assets/img/capas/jacuzzi2560.webp 2560w,
+            /assets/img/capas/jacuzzi3440.webp 3440w
+            " src="/assets/img/capas/jacuzzi1920.webp" class="landingimg" />
+        <h1 class="landingtitle">Você merece conforto e tranquilidade.</h1>
+        <span class="landingsub">Renda de até R$ 13 mil, imóveis de até R$ 600 mil e juros a partir de 4% ao ano.</span>
+        <a href="/#simulador"><button class="landingbtn">Simule seu crédito</button></a>
+    </div>
+
+    <div class="section" id="enquadramento">
+        <div class="container">
+            <span class="title">Descubra sua faixa</span>
+            <div class="calc">
+                <p class="calcintro">
+                    Informe a renda bruta somada de todos que vão morar no imóvel e veja na hora em qual faixa você se
+                    enquadra, até quanto pode financiar e qual a taxa de juros do seu perfil. É gratuito e não consulta
+                    o seu CPF.
+                </p>
+                <div class="calcrow">
+                    <label for="calcrenda">Renda familiar bruta mensal</label>
+                    <input type="text" class="input" id="calcrenda" inputmode="numeric" placeholder="R$ 0,00"
+                        autocomplete="off">
+                </div>
+                <div class="calcresult" id="calcresult" hidden>
+                    <span class="calcfaixa" id="calcfaixa"></span>
+                    <div class="calcgrid">
+                        <div>
+                            <span class="calclabel">Imóvel de até</span>
+                            <span class="calcvalue" id="calcteto"></span>
+                        </div>
+                        <div>
+                            <span class="calclabel">Juros ao ano</span>
+                            <span class="calcvalue" id="calcjuros"></span>
+                        </div>
+                        <div>
+                            <span class="calclabel">Subsídio</span>
+                            <span class="calcvalue" id="calcsubsidio"></span>
+                        </div>
+                    </div>
+                    <span class="calcnote" id="calcnote"></span>
+                    <a class="sectioncta" href="/#simulador"><button type="button" class="calcbtn">Fazer minha análise gratuita</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="destaques" hidden>
+        <div class="container">
+            <span class="title">Empreendimentos em destaque</span>
+            <div class="destaquegrid" id="destaquegrid"></div>
+            <a class="sectioncta" href="/empreendimentos"><button type="button" class="calcbtn">Ver todos os empreendimentos</button></a>
+        </div>
+    </div>
+
+    <div class="simulador" id="simulador">
+        <div class="container">
+            <span class="title">Cadasto para análise</span>
+            <form id="form">
+                <div class="item">
+                    <label for="nome">Nome Completo<span class="red">*</span></label><br>
+                    <input type="text" class="input" name="nome" id="nome" required>
+                </div>
+                <div class="item">
+                    <label for="email">E-Mail<span class="red">*</span></label><br>
+                    <input type="email" class="input" name="email" id="email" required>
+                </div>
+                <div class="item">
+                    <label for="telefone">Telefone<span class="red">*</span></label><br>
+                    <input type="text" class="input" name="telefone" id="telefone" value="+55" required>
+                </div>
+                <div class="item">
+                    <label for="cpf">CPF<span class="red">*</span></label><br>
+                    <input type="text" class="input" name="cpf" id="cpf" required>
+                </div>
+                <div class="item">
+                    <label for="renda">Renda Familiar<span class="red">*</span></label><br>
+                    <select name="renda" class="input" id="renda" required>
+                        <option value="">—Escolha uma opção—</option>
+                        <option value="Só tenho bolsa familia">Só tenho bolsa familia</option>
+                        <option value="Até R$3.200">Até R$3.200</option>
+                        <option value="Entre R$3.201 e R$5.000">Entre R$3.201 e R$5.000</option>
+                        <option value="Entre R$5.001 e R$9.600">Entre R$5.001 e R$9.600</option>
+                        <option value="Entre R$9.601 e R$13.000">Entre R$9.601 e R$13.000</option>
+                        <option value="Maior que R$13.000">Maior que R$13.000</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label for="estadocivil">Estado Civil<span class="red">*</span></label><br>
+                    <select name="estadocivil" class="input" id="estadocivil" required>
+                        <option value="">—Escolha uma opção—</option>
+                        <option value="SOLTEIRO">Solteiro(a)</option>
+                        <option value="CASADO">Casado(a)</option>
+                        <option value="DIVORCIADO">Divociado(a)</option>
+                        <option value="VIUVO">Viuvo(a)</option>
+                        <option value="UNIAO ESTAVEL">União Estavel</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label>Possui 36 meses de FGTS?<span class="red">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="fgtssim" name="fgts" value="Sim" required>
+                            <label for="fgtssim">Sim</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="fgtsnao" name="fgts" value="Nao" required>
+                            <label for="fgtsnao">Não</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <label>Possui dependentes?<span class="red">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="dependentessim" name="dependentes" value="Sim" required>
+                            <label for="dependentessim">Sim</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="dependentesnao" name="dependentes" value="Nao" required>
+                            <label for="dependentesnao">Não</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <label>Emprego<span class="red">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="autonomo" name="emprego" value="AUTONOMO" required>
+                            <label for="autonomo">Autônomo</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="assalariado" name="emprego" value="CLT" required>
+                            <label for="assalariado">Assalariado</label>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="midia" value="Site MCMV Douglas - POA">
+                <span class="formstatus" id="formstatus" role="status" aria-live="polite"></span>
+                <button type="submit" id="formsubmit">Fazer Simulação</button>
+            </form>
+            <span class="formdisclaimer">Retornamos o contato em até 24 horas. Seus dados são usados apenas para o seu
+                atendimento.</span>
+        </div>
+    </div>
+
+    <div class="prova">
+        <div class="provagrid" aria-hidden="true">
+            <img alt="" src="/assets/img/prova/1.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/2.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/3.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/4.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/5.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/6.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/7.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/8.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/9.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/10.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/11.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/12.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/13.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/14.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/15.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/16.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/17.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/18.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/19.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/20.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/21.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/22.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/23.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/24.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/25.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/26.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/27.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/28.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/29.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/30.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/31.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/32.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/33.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/34.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/35.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/36.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/37.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/38.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/39.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/40.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/41.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/42.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/43.webp" loading="lazy">
+            <img alt="" src="/assets/img/prova/44.webp" loading="lazy">
+        </div>
+        <div class="provacontent">
+            <span class="provatitle">Mais de 19 mil famílias já receberam as chaves</span>
+            <p>
+                Somos uma equipe especializada exclusivamente no programa Minha Casa Minha Vida. Acompanhamos cada
+                etapa da sua jornada, da primeira simulação até a entrega das chaves, ajustando as condições de
+                pagamento ao que cabe no seu orçamento.
+            </p>
+            <p>
+                Atendimento personalizado, sem custo e sem compromisso. Venha tomar um café e conversar com um dos
+                nossos especialistas.
+            </p>
+            <a href="/sobrenos"><button type="button" class="provabtn">Conheça a nossa história</button></a>
+        </div>
+    </div>
+
+    <div class="section" id="faixas">
+        <div class="container">
+            <span class="title">Faixas do programa</span>
+            <p class="sectionintro">
+                O Minha Casa Minha Vida 2026 ampliou as faixas de renda e os tetos dos imóveis. Se antes você achava
+                que não se enquadrava, agora pode ser a sua vez.
+            </p>
+            <div class="faixagrid">
+                <div class="faixacard">
+                    <span class="faixatag">Faixa 1</span>
+                    <span class="faixarenda">Renda até R$ 3.200</span>
+                    <ul>
+                        <li>Imóveis de R$ 210 mil a R$ 275 mil<span class="ast">*</span></li>
+                        <li>Juros de 4,00% a 5,25% ao ano</li>
+                        <li>Subsídio de até R$ 55 mil na entrada</li>
+                    </ul>
+                </div>
+                <div class="faixacard">
+                    <span class="faixatag">Faixa 2</span>
+                    <span class="faixarenda">Renda de R$ 3.200,01 a R$ 5.000</span>
+                    <ul>
+                        <li>Imóveis de R$ 210 mil a R$ 275 mil<span class="ast">*</span></li>
+                        <li>Juros de 4,75% a 7,00% ao ano</li>
+                        <li>Subsídio possível via Fator Social</li>
+                    </ul>
+                </div>
+                <div class="faixacard">
+                    <span class="faixatag">Faixa 3</span>
+                    <span class="faixarenda">Renda até R$ 9.600</span>
+                    <ul>
+                        <li>Imóveis de até R$ 400 mil</li>
+                        <li>Juros de 7,66% a 8,16% ao ano</li>
+                        <li>Sem subsídio na entrada</li>
+                    </ul>
+                </div>
+                <div class="faixacard">
+                    <span class="faixatag">Faixa 4 — Classe Média</span>
+                    <span class="faixarenda">Renda até R$ 13.000</span>
+                    <ul>
+                        <li>Imóveis de até R$ 600 mil</li>
+                        <li>Juros de 10,00% ao ano</li>
+                        <li>Sem subsídio na entrada</li>
+                    </ul>
+                </div>
+            </div>
+            <span class="faixafoot">
+                <span class="ast">*</span> O valor máximo varia conforme a região e a localização do imóvel. Acima de
+                R$ 13 mil de renda, ou para imóveis acima do teto, o financiamento é feito pelo SBPE — também
+                trabalhamos com essa modalidade.
+            </span>
+        </div>
+    </div>
+
+    <div class="section" id="duvidas">
+        <div class="container">
+            <span class="title">Dúvidas frequentes</span>
+            <div class="faq">
+                <details>
+                    <summary>Não tenho valor para a entrada. Consigo mesmo assim?</summary>
+                    <p>
+                        Na Faixa 1 o governo oferece subsídio de até R$ 55 mil, que abate a entrada e em muitos casos a
+                        elimina. Na Faixa 2 há possibilidade de subsídio via Fator Social. Além disso, o restante da
+                        entrada costuma ser parcelado durante a obra.
+                    </p>
+                </details>
+                <details>
+                    <summary>Os juros no Brasil não estão muito altos?</summary>
+                    <p>
+                        Para o mercado em geral, sim. O Minha Casa Minha Vida é a exceção: as taxas começam em 4% ao
+                        ano, enquanto o crédito imobiliário convencional gira em torno de 11% a 14% ao ano.
+                    </p>
+                </details>
+                <details>
+                    <summary>Não sei se a minha renda é suficiente.</summary>
+                    <p>
+                        O programa em 2026 está muito mais amplo: atende famílias com renda de até R$ 13 mil, somando a
+                        renda de todos que vão morar no imóvel. A simulação é gratuita e não compromete o seu CPF.
+                    </p>
+                </details>
+                <details>
+                    <summary>Posso usar o meu FGTS?</summary>
+                    <p>
+                        Sim. O FGTS pode ser usado como parte do valor de entrada ou para reduzir as parcelas do
+                        financiamento. Por isso perguntamos no formulário se você tem 36 meses de FGTS.
+                    </p>
+                </details>
+                <details>
+                    <summary>Posso somar a minha renda com a de outra pessoa?</summary>
+                    <p>
+                        Pode. É possível compor renda com cônjuge, familiares ou outras pessoas que vão morar no
+                        imóvel, o que aumenta bastante a chance de aprovação e o valor liberado.
+                    </p>
+                </details>
+                <details>
+                    <summary>Quais documentos eu preciso separar?</summary>
+                    <p>
+                        Para a análise inicial, apenas identidade com CPF, comprovante de residência e comprovante de
+                        renda — três últimos contracheques para assalariados, ou pró-labore e extrato bancário dos
+                        últimos seis meses para autônomos.
+                    </p>
+                </details>
+                <details>
+                    <summary>Aluguel não é mais fácil?</summary>
+                    <p>
+                        O aluguel é um custo que não volta e sobe todo ano pelo IGP-M ou IPCA. Cada parcela do
+                        financiamento constrói patrimônio, e em muitos casos a parcela fica menor ou igual ao aluguel
+                        que você já paga hoje.
+                    </p>
+                </details>
+                <details>
+                    <summary>Quanto tempo demora para vocês entrarem em contato?</summary>
+                    <p>
+                        Retornamos o contato em até 24 horas após o envio do formulário, com a sua simulação e as
+                        opções de imóveis disponíveis para a sua faixa.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <span>&copy; 2026 Minha Casa Minha Vida RS - contato@minhacasaminhavidars.com.br</span>
+        <span class="cnpj">48.460.508/0001-07</span>
+        <div>
+            <a href="https://wa.me/5551995058194" target="_blank" rel="noopener noreferrer"><img alt="imagem"
+                    src="/assets/img/icons/whatsapp.webp" class="footersocial"></a>
+            <a href="https://instagram.com/novominhacasaminhavidars" target="_blank" rel="noopener noreferrer"><img
+                    alt="imagem" src="/assets/img/icons/instagram.webp" class="footersocial"></a>
+            <a href="mailto:contato@minhacasaminhavidars.com.br" target="_blank" rel="noopener noreferrer"><img
+                    alt="imagem" src="/assets/img/icons/email.webp" class="footersocial"></a>
+
+        </div>
+        <a href="/#"><img alt="imagem" src="/assets/img/icons/icon.webp" class="footericon"></a>
+    </footer>
+</body>
+
+</html>

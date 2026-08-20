@@ -1,0 +1,213 @@
+@import url("../global.css");
+
+.landing {
+    height: 60vh;
+    margin-top: 70px;
+}
+
+.landingtitle {
+    font-size: 50px;
+    width: 78%;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.landingsub {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 28px !important;
+    color: #fff;
+    margin-top: 25px;
+    font-size: 16px;
+    text-align: center;
+    width: 80%;
+    text-shadow: 3px 3px 5px #000;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.landing .bonus {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 29px !important;
+}
+
+.small {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 15px !important;
+    color: #fff;
+    margin-top: 25px;
+    font-size: 16px;
+    text-align: right;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.landingbtn:hover {
+    cursor: pointer;
+}
+
+.simulador {
+    width: 100%;
+}
+
+body {
+    background-color: #aaa9a2;
+    ;
+}
+
+.seguro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 6vh;
+    gap: 10px;
+}
+
+.seguro div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.seguro .lock {
+    width: 20px;
+}
+
+.seguro span {
+    text-align: center;
+    color: #fff;
+    font-family: 'centra-no2', sans-serif;
+    text-decoration: underline;
+}
+
+.seguro span:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    top: 12vh;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 0 19px 0 rgba(0, 0, 0, .1);
+    background-color: #fff;
+    font-family: 'centra-no2', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 200px;
+}
+
+.container .title {
+    text-align: center;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    font-size: 20px;
+    border-bottom: solid 1px;
+    width: 250px;
+}
+
+.container .items {
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container .item {
+    flex: 1 1 auto;
+    max-width: calc(33.33% - 20px);
+    min-width: 150px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.container button {
+    text-align: center;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+    font-family: 'centra-no2', sans-serif;
+    border: none;
+    width: 210px;
+    height: 60px;
+    font-size: 16px;
+    margin-top: 11px;
+    background-color: #575757;
+    color: #fff;
+}
+
+.container button:hover {
+    cursor: pointer;
+    background-color: #6b6b6b;
+}
+
+.docsintro {
+    width: 100%;
+    padding: 55px 40px 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a4a4a;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.container .items {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 25px 30px 5px;
+}
+
+.docstitle {
+    display: block;
+    font-size: 17px;
+    color: #000;
+    padding-bottom: 8px;
+    border-bottom: solid 1px #ddd;
+}
+
+.container .item ul {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container .item li {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #4a4a4a;
+    padding: 6px 0;
+}
+
+.docscta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.docscta button {
+    left: 0;
+    transform: none;
+    width: auto;
+    min-width: 300px;
+    padding: 0 25px;
+}
+
+.docsnote {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #8a8a8a;
+    padding: 12px 20px 25px;
+    box-sizing: border-box;
+}

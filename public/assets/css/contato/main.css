@@ -1,0 +1,44 @@
+@import url("../global.css");
+
+body {
+    background-color: #4a4a4a;
+}
+
+footer {
+    width: 100%;
+    height: 45vh;
+    font-size: 20px;
+    justify-content: start;
+    gap: 10px;
+}
+
+.title {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 32px;
+    margin-bottom: 12px;
+    margin-top: 23px;
+    color: #fff;
+
+}
+
+a:link {
+    color: #fff;
+}
+
+a:visited {
+    color: #fff;
+}
+
+.item {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.footersocial {
+    margin: 0;
+}

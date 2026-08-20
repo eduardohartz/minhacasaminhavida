@@ -1,0 +1,527 @@
+@import url("../global.css");
+
+.landing {
+    height: 100vh;
+}
+
+.landingbtn {
+    font-family: 'centra-no2', sans-serif;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #000;
+    border: none;
+    width: 210px;
+    height: 60px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.landingbtn:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.simulador {
+    width: 100%;
+}
+
+body {
+    background-color: #aaa9a2;
+    ;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    top: 15vh;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 0 19px 0 rgba(0, 0, 0, .1);
+    background-color: #fff;
+    font-family: 'centra-no2', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 200px;
+}
+
+.container .title {
+    text-align: center;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    font-size: 20px;
+    border-bottom: solid 1px;
+    width: 227px;
+}
+
+.container form {
+    padding: 40px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container .item {
+    flex: 1 1 auto;
+    max-width: calc(33.33% - 20px);
+    min-width: 150px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.item input[type="text"],
+.item input[type="email"] {
+    height: 25px;
+    width: 210px;
+    border-radius: 5px;
+    border: solid 1px #333;
+}
+
+.radio-option input,
+.radio-option label {
+    cursor: pointer;
+
+}
+
+.item select {
+    height: 28px;
+    width: 215px;
+    border-radius: 5px;
+    border: solid 1px #333;
+    background-color: #fff;
+}
+
+.radio-option {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.container button {
+    text-align: center;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+    font-family: 'centra-no2', sans-serif;
+    border: none;
+    width: 210px;
+    height: 60px;
+    font-size: 16px;
+    background-color: #575757;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.container button:hover {
+    cursor: pointer;
+    background-color: #6b6b6b;
+}
+
+.red {
+    color: red;
+}
+
+.landingsub {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    max-width: 620px;
+    margin-top: 15px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, .35);
+}
+
+.section {
+    width: 100%;
+    padding: 45px 0;
+}
+
+.section .container {
+    top: 0;
+    margin-bottom: 0;
+    display: block;
+    padding: 62px 40px 40px;
+}
+
+.section .container .title {
+    top: 22px;
+    
+    width: auto;
+    max-width: calc(100% - 44px);
+}
+
+.section .container button {
+    position: static;
+    left: auto;
+    transform: none;
+    width: auto;
+}
+
+.sectioncta {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sectionintro {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin: 0 0 25px;
+    text-align: center;
+}
+
+.calcintro {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin: 0 0 25px;
+    text-align: center;
+}
+
+.calcrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-family: 'centra-no2', sans-serif;
+}
+
+.calcrow label {
+    font-size: 15px;
+}
+
+#calcrenda {
+    height: 45px;
+    width: 260px;
+    max-width: 100%;
+    border-radius: 5px;
+    border: solid 1px #333;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.calcresult[hidden] {
+    display: none;
+}
+
+.calcresult {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: solid 1px #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'centra-no2', sans-serif;
+}
+
+.calcfaixa {
+    font-family: 'recife-display', Georgia;
+    font-size: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.calcgrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.calclabel {
+    display: block;
+    font-size: 13px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.calcvalue {
+    display: block;
+    font-size: 19px;
+    color: #333;
+    margin-top: 4px;
+}
+
+.calcnote {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4a4a4a;
+    text-align: center;
+    max-width: 560px;
+    margin-top: 22px;
+}
+
+.calcbtn {
+    font-family: 'centra-no2', sans-serif;
+    border: none;
+    min-width: 210px;
+    padding: 0 25px;
+    height: 60px;
+    font-size: 16px;
+    background-color: #575757;
+    color: #fff;
+    margin-top: 28px;
+}
+
+.calcbtn:hover {
+    cursor: pointer;
+    background-color: #6b6b6b;
+}
+
+.calcresult .calcbtn {
+    align-self: center;
+}
+
+.destaquegrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.destaquecard {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+}
+
+.destaquecard:hover {
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, .12);
+}
+
+.destaquecard img {
+    width: 100%;
+    height: 165px;
+    object-fit: cover;
+}
+
+.destaquebody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+    font-family: 'centra-no2', sans-serif;
+}
+
+.destaquenome {
+    font-size: 17px;
+}
+
+.destaquelocal,
+.destaquespecs {
+    font-size: 14px;
+    color: #777;
+}
+
+.destaquevalor {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.prova {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 90px 20px;
+    overflow: hidden;
+}
+
+.provagrid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    z-index: 0;
+}
+
+.provagrid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.prova::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(40, 40, 40, .78);
+    z-index: 1;
+}
+
+.provacontent {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    text-align: center;
+    color: #fff;
+    font-family: 'centra-no2', sans-serif;
+}
+
+.provatitle {
+    display: block;
+    font-family: 'recife-display', Georgia;
+    font-size: 40px;
+    margin-bottom: 22px;
+}
+
+.provacontent p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 16px;
+}
+
+.provabtn {
+    font-family: 'centra-no2', sans-serif;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #000;
+    border: none;
+    width: 240px;
+    height: 60px;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.provabtn:hover {
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.faixagrid {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.faixacard {
+    border: solid 1px #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'centra-no2', sans-serif;
+}
+
+.faixatag {
+    display: inline-block;
+    background-color: #575757;
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+.faixarenda {
+    display: block;
+    font-size: 17px;
+    color: #333;
+    margin: 14px 0 10px;
+}
+
+.faixacard ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.faixacard li {
+    font-size: 15px;
+    color: #4a4a4a;
+    padding: 7px 0;
+    border-bottom: dashed 1px #e4e4e4;
+}
+
+.faixacard li:last-child {
+    border-bottom: none;
+}
+
+.ast {
+    color: #8a8a8a;
+}
+
+.faixafoot {
+    display: block;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #777;
+    margin-top: 22px;
+    text-align: center;
+}
+
+.faq {
+    font-family: 'centra-no2', sans-serif;
+}
+
+.faq details {
+    border-bottom: solid 1px #e4e4e4;
+}
+
+.faq summary {
+    font-size: 16px;
+    color: #333;
+    padding: 16px 0;
+    cursor: pointer;
+}
+
+.faq summary:hover {
+    color: #000;
+}
+
+.faq p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0 0 18px;
+}
+
+.formstatus {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 15px;
+    color: #4a4a4a;
+    padding: 0 40px;
+}
+
+.formstatus.error {
+    color: #b00020;
+}
+
+.formstatus:empty {
+    display: none;
+}
+
+.formdisclaimer {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 13px;
+    color: #8a8a8a;
+    padding: 0 40px 25px;
+}
+
+.container button:disabled {
+    background-color: #9a9a9a;
+    cursor: default;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:url" content="https://minhacasaminhavidars.com.br/empreendimentos">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Minha Casa Minha Vida RS">
+    <meta property="og:title" content="Empreendimentos - Minha Casa Minha Vida RS">
+    <meta name="og:description"
+        content="Empreendimentos disponíveis pelo Minha Casa Minha Vida 2026 em Porto Alegre e região. Veja fotos, plantas e faça a sua análise gratuita.">
+    <meta property="og:image" content="https://i.imgur.com/O1GaszB.png">
+
+    <meta property="url" content="https://minhacasaminhavidars.com.br/empreendimentos">
+    <meta property="type" content="website">
+    <meta property="title" content="Empreendimentos - Minha Casa Minha Vida RS">
+    <meta name="description"
+        content="Empreendimentos disponíveis pelo Minha Casa Minha Vida 2026 em Porto Alegre e região. Veja fotos, plantas e faça a sua análise gratuita.">
+    <meta property="image" content="https://i.imgur.com/O1GaszB.png">
+    <meta name="keywords"
+        content="imoveis em Porto Alegre, imoveis em Cachoeirinha, minha casa minha vida, minha casa minha vida porto alegre, minha casa minha vida rs, primeiro imovel, financiamento caixa, apartamento minha casa minha vida, apartamentos financiados pela caixa">
+
+    <meta name="theme-color" content="#aaa9a2">
+    <meta name="robots" content="">
+    <meta name="revisit-after" content="1 day">
+    <meta name="language" content="Portuguese">
+    <meta name="generator" content="N/A">
+    <meta name="darkreader-lock">
+
+    <title>Empreendimentos - Minha Casa Minha Vida RS</title>
+    <link rel="stylesheet" href="/assets/css/empreendimentos/main.css">
+    <link rel="stylesheet" href="/assets/css/empreendimentos/mobile.css" media="screen and (max-width: 900px)">
+    <link rel="icon" type="image/x-icon" href="/assets/img/icons/icon.ico">
+    <script src="/assets/js/global.js" defer></script>
+    <script src="/assets/js/empreendimentos.js"></script>
+</head>
+
+<body>
+    <a href="https://wa.me/5551995058194" target="_blank" rel="noopener noreferrer"><img alt="imagem" class="whatsapp"
+            src="/assets/img/icons/whatsapp.webp"></a>
+    <div class="navbar">
+        <a href="/#"><img alt="imagem" src="/assets/img/icons/logo.webp" class="navlogo"></a>
+        <div class="navbtns">
+            <a href="/#"><button class="navbtn">Home</button></a>
+            <a href="/sobrenos"><button class="navbtn">Sobre nós</button></a>
+            <a href="/empreendimentos"><button class="navbtn selected">Empreendimentos</button></a>
+            <a href="/#simulador"><button class="navbtn">Simule seu crédito</button></a>
+            <a href="/contato"><button class="navbtn">Contato</button></a>
+        </div>
+        <img alt="imagem" src="/assets/img/utils/menu.webp" class="navmenubtn" id="navmenubtn">
+    </div>
+    <div id="modal" class="modal">
+        <img alt="imagem" src="/assets/img/utils/close.webp" class="close">
+        <div class="modal-content">
+            <a href="/#"><button class="menubtn">Home</button></a>
+            <a href="/sobrenos"><button class="menubtn">Sobre nós</button></a>
+            <a href="/empreendimentos"><button class="menubtn selected">Empreendimentos</button></a>
+            <a href="/#simulador"><button class="menubtn">Simule seu crédito</button></a>
+            <a href="/contato"><button class="menubtn">Contato</button></a>
+        </div>
+    </div>
+    <div class="landing">
+        <img alt="imagem" srcset="
+            /assets/img/capas/beachTwo230.webp   230w,
+            /assets/img/capas/beachTwo640.webp   640w,
+            /assets/img/capas/beachTwo960.webp   960w,
+            /assets/img/capas/beachTwo1920.webp 1920w,
+            /assets/img/capas/beachTwo2560.webp 2560w,
+            /assets/img/capas/beachTwo3440.webp 3440w
+            " src="/assets/img/capas/beachTwo1920.webp" class="landingimg" />
+        <h1 class="landingtitle">Empreendimentos</h1>
+    </div>
+    <div class="empreendimentos">
+        <div class="selector">
+            <label for="cidade">Selecione uma cidade:</label>
+            <select id="cidade">
+                <option value="todas">Todas</option>
+            </select>
+        </div>
+        <div id="itens"></div>
+        <div id="loading">Carregando empreendimentos...</div>
+        <div id="noitems" style="display: none;">No momento, não temos nenhum empreendimento nessa cidade.</div>
+        <div id="loaderror" style="display: none;">
+            Não foi possível carregar os empreendimentos agora.
+            <a href="https://wa.me/5551995058194" target="_blank" rel="noopener noreferrer">Fale conosco pelo
+                WhatsApp</a> e enviamos as opções disponíveis.
+        </div>
+    </div>
+    <footer>
+        <span>&copy; 2026 Minha Casa Minha Vida RS - contato@minhacasaminhavidars.com.br</span>
+        <span class="cnpj">48.460.508/0001-07</span>
+        <div>
+            <a href="https://wa.me/5551995058194" target="_blank" rel="noopener noreferrer"><img alt="imagem"
+                    src="/assets/img/icons/whatsapp.webp" class="footersocial"></a>
+            <a href="https://instagram.com/novominhacasaminhavidars" target="_blank" rel="noopener noreferrer"><img
+                    alt="imagem" src="/assets/img/icons/instagram.webp" class="footersocial"></a>
+            <a href="mailto:contato@minhacasaminhavidars.com.br" target="_blank" rel="noopener noreferrer"><img
+                    alt="imagem" src="/assets/img/icons/email.webp" class="footersocial"></a>
+
+        </div>
+        <a href="/#"><img alt="imagem" src="/assets/img/icons/icon.webp" class="footericon"></a>
+    </footer>
+</body>
+
+</html>

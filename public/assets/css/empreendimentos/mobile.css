@@ -1,0 +1,17 @@
+@import url("../gmobile.css");
+
+.landingtitle {
+    font-size: calc(1vw + 1vh + 6vmin);
+}
+
+.itemlist {
+    font-size: 16px;
+}
+.itemctabtn {
+    min-width: 0;
+    width: 100%;
+}
+
+.itemcta {
+    width: 95%;
+}

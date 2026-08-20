@@ -1,0 +1,14 @@
+@import url("../gmobile.css");
+
+.landingtitle {
+    font-size: calc(1vw + 1vh + 6vmin);
+}
+
+.infogrid {
+    grid-template-columns: 1fr;
+}
+
+.sobrebtn {
+    width: 100%;
+    min-width: 0;
+}

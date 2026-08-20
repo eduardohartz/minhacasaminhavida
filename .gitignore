@@ -1,2 +1,11 @@
 
 .DS_Store
+
+.dev.vars
+.wrangler
+node_modules
+
+# Build output directory is the repo root, so anything committed here is served
+# publicly. Client source material and internal design notes stay local only.
+refactor/
+docs/
