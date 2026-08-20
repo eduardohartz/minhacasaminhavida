@@ -132,12 +132,42 @@ body {
     text-align: center;
     max-width: 620px;
     margin-top: 15px;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, .35);
+    text-shadow: 1px 1px 5px #333, 0 2px 12px rgba(0, 0, 0, .6);
 }
 
 .section {
     width: 100%;
     padding: 45px 0;
+}
+
+.section.alt {
+    background-color: #fff;
+}
+
+.section.alt .container {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.section.alt .destaquecard,
+.section.alt .faixacard {
+    border-color: #c9c8c2;
+}
+
+.section.alt .destaquecard:hover {
+    box-shadow: none;
+    border-color: #8f8e87;
+}
+
+#enquadramento:has(+ #destaques[hidden]) {
+    background-color: #fff;
+}
+
+#enquadramento:has(+ #destaques[hidden]) .container {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 .section .container {
@@ -149,7 +179,6 @@ body {
 
 .section .container .title {
     top: 22px;
-    
     width: auto;
     max-width: calc(100% - 44px);
 }
@@ -293,11 +322,15 @@ body {
     display: flex;
     flex-direction: column;
     border: solid 1px #ddd;
-    border-radius: 8px;
     overflow: hidden;
     text-decoration: none;
-    color: #333;
     background-color: #fff;
+}
+
+.destaquecard,
+.destaquecard:link,
+.destaquecard:visited {
+    color: #333;
 }
 
 .destaquecard:hover {
@@ -320,6 +353,7 @@ body {
 
 .destaquenome {
     font-size: 17px;
+    color: #333;
 }
 
 .destaquelocal,
@@ -331,10 +365,12 @@ body {
 .destaquevalor {
     font-size: 18px;
     margin-top: 5px;
+    color: #333;
 }
 
 .prova {
     position: relative;
+    z-index: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -407,14 +443,12 @@ body {
 
 .faixagrid {
     display: grid;
-    
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
 }
 
 .faixacard {
     border: solid 1px #ddd;
-    border-radius: 8px;
     padding: 20px;
     font-family: 'centra-no2', sans-serif;
 }
@@ -425,7 +459,6 @@ body {
     color: #fff;
     font-size: 13px;
     padding: 5px 14px;
-    border-radius: 20px;
 }
 
 .faixarenda {

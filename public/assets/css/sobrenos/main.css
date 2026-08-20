@@ -31,7 +31,6 @@
 
 .infogrid {
     display: grid;
-    
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     width: 100%;
@@ -39,7 +38,6 @@
 
 .infocard {
     border: solid 1px #8f8e87;
-    border-radius: 8px;
     padding: 20px;
     background-color: rgba(255, 255, 255, .35);
     display: flex;
@@ -53,7 +51,6 @@
     font-family: 'centra-no2', sans-serif;
     font-size: 13px;
     padding: 5px 14px;
-    border-radius: 20px;
     width: auto;
 }
 
