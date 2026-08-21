@@ -87,11 +87,20 @@ document.addEventListener('DOMContentLoaded', () => {
         { key: 'onibus_proximo', label: 'Ônibus próximo' },
     ];
 
-    const itensContainer = document.getElementById('itens');
+    const cardGrid = document.getElementById('cardgrid');
     const loading = document.getElementById('loading');
     const noItems = document.getElementById('noitems');
     const loadError = document.getElementById('loaderror');
     const select = document.getElementById('cidade');
+    const shuffle = document.getElementById('landingshuffle');
+
+    const detalhe = document.getElementById('detalhe');
+    const detalheConteudo = document.getElementById('detalheconteudo');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboximg');
+    const lightboxContador = document.getElementById('lightboxcontador');
+
+    let imoveis = [];
 
     function slugify(value) {
         return (value || '')
@@ -101,11 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/[^a-z0-9]/g, '');
     }
 
-    function amenidades(imovel, lista) {
-        return lista.filter(item => imovel[item.key] === 1 || imovel[item.key] === true)
-            .map(item => item.label);
-    }
-
     function el(tag, className, text) {
         const node = document.createElement(tag);
         if (className) node.className = className;
@@ -113,10 +117,196 @@ document.addEventListener('DOMContentLoaded', () => {
         return node;
     }
 
-    function listaColunas(labels) {
-        if (!labels.length) {
-            return null;
+    function amenidades(imovel, lista) {
+        return lista.filter(item => imovel[item.key] === 1 || imovel[item.key] === true)
+            .map(item => item.label);
+    }
+
+    function formatValor(valor) {
+        if (!valor || valor <= 0) return 'Consulte';
+        return 'R$ ' + Number(valor).toLocaleString('pt-BR', { maximumFractionDigits: 0 });
+    }
+
+    function imagensDe(imovel) {
+        const out = [];
+        if (imovel.imagem_principal) out.push(imovel.imagem_principal);
+        (imovel.imagens || []).forEach(url => {
+            if (out.indexOf(url) === -1) out.push(url);
+        });
+        return out;
+    }
+
+    function specsDe(imovel) {
+        const specs = [];
+        if (imovel.dormitorios) specs.push(imovel.dormitorios + ' dorm');
+        if (imovel.banheiros) specs.push(imovel.banheiros + ' banh');
+        if (imovel.vagas) specs.push(imovel.vagas + ' vaga' + (imovel.vagas > 1 ? 's' : ''));
+        if (imovel.area) specs.push(Number(imovel.area).toLocaleString('pt-BR') + ' m²');
+        return specs;
+    }
+
+    function iniciarShuffle(destaques) {
+        const fotos = destaques.map(i => i.imagem_principal).filter(Boolean);
+        if (!fotos.length || !shuffle) return;
+
+        const camadas = fotos.map((src, index) => {
+            const img = el('img', 'landingslide' + (index === 0 ? ' visible' : ''));
+            img.src = src;
+            img.alt = '';
+            img.loading = index === 0 ? 'eager' : 'lazy';
+            shuffle.appendChild(img);
+            return img;
+        });
+
+        shuffle.classList.add('active');
+        if (camadas.length < 2) return;
+
+        let atual = 0;
+        setInterval(() => {
+            camadas[atual].classList.remove('visible');
+            atual = (atual + 1) % camadas.length;
+            camadas[atual].classList.add('visible');
+        }, 5000);
+    }
+
+    function buildCard(imovel) {
+        const card = el('button', 'empcard');
+        card.type = 'button';
+        const cidadeSlug = slugify(imovel.cidade);
+        if (cidadeSlug) card.classList.add(cidadeSlug);
+
+        const capa = imovel.imagem_principal;
+        if (capa) {
+            const img = el('img');
+            img.src = capa;
+            img.alt = imovel.nome || 'Empreendimento';
+            img.loading = 'lazy';
+            card.appendChild(img);
         }
+
+        const body = el('div', 'empcardbody');
+        body.appendChild(el('span', 'empcardnome', imovel.nome || 'Empreendimento'));
+
+        const local = [imovel.bairro, imovel.cidade].filter(Boolean).join(', ');
+        if (local) body.appendChild(el('span', 'empcardlocal', local));
+
+        const specs = specsDe(imovel);
+        if (specs.length) body.appendChild(el('span', 'empcardspecs', specs.join(' · ')));
+
+        body.appendChild(el('span', 'empcardvalor', formatValor(imovel.valor)));
+        body.appendChild(el('span', 'empcardver', 'Ver detalhes'));
+
+        card.appendChild(body);
+        card.addEventListener('click', () => abrirDetalhe(imovel));
+        return card;
+    }
+
+    let galeriaImagens = [];
+    let galeriaIndex = 0;
+    let galeriaTimer = null;
+    let previewsToShow = 7;
+
+    function previewCount() {
+        const w = window.innerWidth;
+        if (w < 350) return 2;
+        if (w < 600) return 3;
+        if (w < 850) return 5;
+        return 7;
+    }
+
+    function renderPreviews() {
+        const strip = detalhe.querySelector('.itemimggallery');
+        if (!strip) return;
+        strip.innerHTML = '';
+
+        let start = galeriaIndex - Math.floor(previewsToShow / 2);
+        if (start + previewsToShow > galeriaImagens.length) start = galeriaImagens.length - previewsToShow;
+        if (start < 0) start = 0;
+
+        for (let i = start; i < Math.min(start + previewsToShow, galeriaImagens.length); i++) {
+            const img = el('img', 'itemimgpreview' + (i === galeriaIndex ? ' selected' : ''));
+            img.src = galeriaImagens[i];
+            img.alt = 'Foto do empreendimento';
+            img.loading = 'lazy';
+            const index = i;
+            img.addEventListener('click', () => {
+                pararCiclo();
+                mostrarImagem(index);
+            });
+            strip.appendChild(img);
+        }
+    }
+
+    function mostrarImagem(index) {
+        galeriaIndex = index;
+        const main = detalhe.querySelector('.itemimg');
+        if (main) main.src = galeriaImagens[index];
+        renderPreviews();
+    }
+
+    function passar(delta) {
+        const total = galeriaImagens.length;
+        mostrarImagem((galeriaIndex + delta + total) % total);
+    }
+
+    function pararCiclo() {
+        if (galeriaTimer) clearInterval(galeriaTimer);
+        galeriaTimer = null;
+    }
+
+    function abrirLightbox() {
+        if (!galeriaImagens.length) return;
+        atualizarLightbox();
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function atualizarLightbox() {
+        lightboxImg.src = galeriaImagens[galeriaIndex];
+        lightboxContador.textContent = galeriaImagens.length > 1
+            ? (galeriaIndex + 1) + ' / ' + galeriaImagens.length
+            : '';
+        const multiplas = galeriaImagens.length > 1;
+        document.getElementById('lightboxanterior').hidden = !multiplas;
+        document.getElementById('lightboxproxima').hidden = !multiplas;
+    }
+
+    function fecharLightbox() {
+        lightbox.hidden = true;
+        if (detalhe.hidden) document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightboxfechar').addEventListener('click', fecharLightbox);
+    document.getElementById('lightboxanterior').addEventListener('click', () => {
+        passar(-1);
+        atualizarLightbox();
+    });
+    document.getElementById('lightboxproxima').addEventListener('click', () => {
+        passar(1);
+        atualizarLightbox();
+    });
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) fecharLightbox();
+    });
+
+    let toqueX = 0;
+    let toqueY = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+        toqueX = e.touches[0].clientX;
+        toqueY = e.touches[0].clientY;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+        if (galeriaImagens.length < 2) return;
+        const dx = e.changedTouches[0].clientX - toqueX;
+        const dy = e.changedTouches[0].clientY - toqueY;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+            passar(dx > 0 ? -1 : 1);
+            atualizarLightbox();
+        }
+    }, { passive: true });
+
+    function listaColunas(labels) {
+        if (!labels.length) return null;
         const wrapper = el('div', 'itemlist');
         const meio = Math.ceil(labels.length / 2);
         [labels.slice(0, meio), labels.slice(meio)].forEach(coluna => {
@@ -134,121 +324,71 @@ document.addEventListener('DOMContentLoaded', () => {
         if (imovel.dormitorios) linhas.push(imovel.dormitorios + (imovel.dormitorios > 1 ? ' quartos' : ' quarto'));
         if (imovel.banheiros) linhas.push(imovel.banheiros + (imovel.banheiros > 1 ? ' banheiros' : ' banheiro'));
         if (imovel.vagas) linhas.push(imovel.vagas + (imovel.vagas > 1 ? ' vagas de estacionamento' : ' vaga de estacionamento'));
-
         const endereco = [imovel.endereco, imovel.numero].filter(Boolean).join(', ');
         const local = [endereco, imovel.bairro].filter(Boolean).join(' - ');
         if (local) linhas.push(local);
-
         return linhas.concat(amenidades(imovel, AMENIDADES_IMOVEL));
     }
 
-    let previewsToShow = 7;
+    function abrirDetalhe(imovel) {
+        pararCiclo();
+        detalheConteudo.innerHTML = '';
 
-    function previewCount() {
-        const screenWidth = window.innerWidth;
-        if (screenWidth < 350) return 2;
-        if (screenWidth < 600) return 3;
-        if (screenWidth < 850) return 5;
-        return 7;
-    }
-
-    function updatePreviews(gallery) {
-        const previews = gallery.querySelector('.itemimggallery');
-        const imagens = gallery._imagens;
-        const current = gallery._current;
-        previews.innerHTML = '';
-
-        let start = current - Math.floor(previewsToShow / 2);
-        if (start + previewsToShow > imagens.length) start = imagens.length - previewsToShow;
-        if (start < 0) start = 0;
-
-        for (let i = start; i < Math.min(start + previewsToShow, imagens.length); i++) {
-            const img = document.createElement('img');
-            img.src = imagens[i];
-            img.alt = 'Foto do empreendimento';
-            img.loading = 'lazy';
-            img.classList.add('itemimgpreview');
-            if (i === current) img.classList.add('selected');
-            const index = i;
-            img.onclick = () => {
-                clearInterval(gallery._cycle);
-                setMainImage(gallery, index);
-            };
-            previews.appendChild(img);
-        }
-    }
-
-    function setMainImage(gallery, index) {
-        gallery._current = index;
-        gallery.querySelector('.itemimg').src = gallery._imagens[index];
-        updatePreviews(gallery);
-    }
-
-    function step(gallery, delta) {
-        const total = gallery._imagens.length;
-        setMainImage(gallery, (gallery._current + delta + total) % total);
-    }
-
-    function buildGallery(gallery, imagens) {
-        gallery._imagens = imagens;
-        gallery._current = 0;
-
-        gallery.querySelector('.itemarrowleft').addEventListener('click', () => {
-            clearInterval(gallery._cycle);
-            step(gallery, -1);
-        });
-        gallery.querySelector('.itemarrowright').addEventListener('click', () => {
-            clearInterval(gallery._cycle);
-            step(gallery, 1);
-        });
-
-        setMainImage(gallery, 0);
-
-        if (imagens.length > 1) {
-            gallery._cycle = setInterval(() => step(gallery, 1), 3000);
-        }
-    }
-
-    function buildItem(imovel) {
         const item = el('div', 'item');
-        const cidadeSlug = slugify(imovel.cidade);
-        if (cidadeSlug) item.classList.add(cidadeSlug);
-
         const local = [imovel.bairro, imovel.cidade].filter(Boolean).join(', ');
         item.appendChild(el('span', 'itemtitle', local ? imovel.nome + ' - ' + local : imovel.nome));
 
-        const imagens = [];
-        if (imovel.imagem_principal) imagens.push(imovel.imagem_principal);
-        (imovel.imagens || []).forEach(url => {
-            if (imagens.indexOf(url) === -1) imagens.push(url);
-        });
+        galeriaImagens = imagensDe(imovel);
+        galeriaIndex = 0;
 
-        if (imagens.length) {
+        if (galeriaImagens.length) {
             const container = el('div', 'itemimgcontainer');
-            const left = el('img', 'itemarrowleft');
-            left.src = '/assets/img/utils/arrowleft.webp';
-            left.alt = 'Foto anterior';
-            const right = el('img', 'itemarrowright');
-            right.src = '/assets/img/utils/arrowright.webp';
-            right.alt = 'Próxima foto';
+
+            const esquerda = el('img', 'itemarrowleft');
+            esquerda.src = '/assets/img/utils/arrowleft.webp';
+            esquerda.alt = 'Foto anterior';
+            esquerda.addEventListener('click', () => {
+                pararCiclo();
+                passar(-1);
+            });
+
+            const direita = el('img', 'itemarrowright');
+            direita.src = '/assets/img/utils/arrowright.webp';
+            direita.alt = 'Próxima foto';
+            direita.addEventListener('click', () => {
+                pararCiclo();
+                passar(1);
+            });
+
             const main = el('img', 'itemimg');
             main.alt = imovel.nome || 'Empreendimento';
-            container.appendChild(left);
-            container.appendChild(right);
+            main.addEventListener('click', abrirLightbox);
+
+            const ampliar = el('button', 'itemampliar', 'Ampliar');
+            ampliar.type = 'button';
+            ampliar.addEventListener('click', abrirLightbox);
+
+            if (galeriaImagens.length < 2) {
+                esquerda.hidden = true;
+                direita.hidden = true;
+            }
+
+            container.appendChild(esquerda);
+            container.appendChild(direita);
             container.appendChild(main);
+            container.appendChild(ampliar);
             item.appendChild(container);
             item.appendChild(el('div', 'itemimggallery'));
         }
 
-        if (imovel.descricao) {
-            item.appendChild(el('span', 'itemdesc', imovel.descricao));
-        }
+        item.appendChild(el('span', 'itemvalor', formatValor(imovel.valor)));
+
+        if (imovel.descricao) item.appendChild(el('span', 'itemdesc', imovel.descricao));
 
         item.appendChild(el('span', 'analise', 'Faça a sua análise gratuita e descubra o valor da sua parcela.*'));
         item.appendChild(el('span', 'small', '*Sujeito a análise de crédito'));
 
-        const info = infoBasica(imovel);
-        const listaInfo = listaColunas(info);
+        const listaInfo = listaColunas(infoBasica(imovel));
         if (listaInfo) {
             item.appendChild(el('span', 'title', 'Informações do imóvel:'));
             item.appendChild(listaInfo);
@@ -265,36 +405,70 @@ document.addEventListener('DOMContentLoaded', () => {
         cta.appendChild(el('button', 'itemctabtn', 'Quero fazer minha análise'));
         item.appendChild(cta);
 
-        if (imagens.length) {
-            buildGallery(item, imagens);
+        detalheConteudo.appendChild(item);
+
+        detalhe.hidden = false;
+        document.body.style.overflow = 'hidden';
+        detalhe.scrollTop = 0;
+
+        if (galeriaImagens.length) {
+            previewsToShow = previewCount();
+            mostrarImagem(0);
+            if (galeriaImagens.length > 1) {
+                galeriaTimer = setInterval(() => passar(1), 4000);
+            }
         }
-
-        return item;
     }
 
-    function applyFilter() {
-        const selected = select.value;
-        let visible = 0;
-
-        itensContainer.querySelectorAll('.item').forEach(item => {
-            const match = selected === 'todas' || item.classList.contains(selected);
-            item.style.display = match ? '' : 'none';
-            if (match) visible++;
-        });
-
-        noItems.style.display = visible === 0 ? '' : 'none';
+    function fecharDetalhe() {
+        pararCiclo();
+        detalhe.hidden = true;
+        lightbox.hidden = true;
+        document.body.style.overflow = '';
+        detalheConteudo.innerHTML = '';
+        galeriaImagens = [];
     }
 
-    select.addEventListener('change', applyFilter);
+    document.getElementById('detalhefechar').addEventListener('click', fecharDetalhe);
+    document.getElementById('detalhevoltar').addEventListener('click', fecharDetalhe);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            if (!lightbox.hidden) fecharLightbox();
+            else if (!detalhe.hidden) fecharDetalhe();
+            return;
+        }
+        if (!lightbox.hidden && galeriaImagens.length > 1) {
+            if (event.key === 'ArrowLeft') {
+                passar(-1);
+                atualizarLightbox();
+            }
+            else if (event.key === 'ArrowRight') {
+                passar(1);
+                atualizarLightbox();
+            }
+        }
+    });
 
     window.addEventListener('resize', () => {
         const next = previewCount();
         if (next === previewsToShow) return;
         previewsToShow = next;
-        itensContainer.querySelectorAll('.item').forEach(item => {
-            if (item._imagens) updatePreviews(item);
-        });
+        if (!detalhe.hidden) renderPreviews();
     });
+
+    function applyFilter() {
+        const selected = select.value;
+        let visible = 0;
+        cardGrid.querySelectorAll('.empcard').forEach(card => {
+            const match = selected === 'todas' || card.classList.contains(selected);
+            card.style.display = match ? '' : 'none';
+            if (match) visible++;
+        });
+        noItems.style.display = visible === 0 ? '' : 'none';
+    }
+
+    select.addEventListener('change', applyFilter);
 
     previewsToShow = previewCount();
 
@@ -304,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(payload => {
-            const imoveis = (payload && payload.data) || [];
+            imoveis = (payload && payload.data) || [];
             loading.style.display = 'none';
 
             if (!imoveis.length) {
@@ -314,10 +488,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const cidades = [];
             imoveis.forEach(imovel => {
-                itensContainer.appendChild(buildItem(imovel));
-                if (imovel.cidade && cidades.indexOf(imovel.cidade) === -1) {
-                    cidades.push(imovel.cidade);
-                }
+                cardGrid.appendChild(buildCard(imovel));
+                if (imovel.cidade && cidades.indexOf(imovel.cidade) === -1) cidades.push(imovel.cidade);
             });
 
             cidades.sort((a, b) => a.localeCompare(b, 'pt-BR')).forEach(cidade => {
@@ -326,6 +498,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 option.textContent = cidade;
                 select.appendChild(option);
             });
+
+            iniciarShuffle(imoveis.filter(i => i.destaque === 1 || i.destaque === true).slice(0, 6));
         })
         .catch(() => {
             loading.style.display = 'none';

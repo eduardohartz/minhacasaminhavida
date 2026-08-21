@@ -55,7 +55,7 @@
     flex-direction: column;
     margin-bottom: 20px;
     max-width: 850px;
-    width: 95%;
+    width: 100%;
 }
 
 .itemtitle {
@@ -255,4 +255,259 @@
 .itemctabtn:hover {
     cursor: pointer;
     background-color: #6b6b6b;
+}
+
+.landingshuffle {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: #4a4a4a;
+    overflow: hidden;
+}
+
+.landingshuffle.active {
+    background-color: transparent;
+}
+
+.landingslide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.landingslide.visible {
+    opacity: 1;
+}
+
+.landing .landingtitle {
+    position: relative;
+    text-shadow: 1px 1px 5px #333, 0 2px 14px rgba(0, 0, 0, .6);
+}
+
+.cardgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 850px;
+    width: 95%;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+.empcard {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 0;
+    border: solid 1px #8f8e87;
+    background-color: #fff;
+    font-family: 'centra-no2', sans-serif;
+    cursor: pointer;
+}
+
+.empcard:hover {
+    border-color: #4a4a4a;
+}
+
+.empcard img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+}
+
+.empcardbody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+}
+
+.empcardnome {
+    font-size: 17px;
+    color: #333;
+}
+
+.empcardlocal,
+.empcardspecs {
+    font-size: 14px;
+    color: #777;
+}
+
+.empcardvalor {
+    font-size: 18px;
+    color: #333;
+    margin-top: 5px;
+}
+
+.empcardver {
+    font-size: 14px;
+    color: #575757;
+    text-decoration: underline;
+    margin-top: 8px;
+}
+
+.detalhe {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background-color: #aaa9a2;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.detalhe[hidden] {
+    display: none;
+}
+
+.detalhebar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 20px;
+    background-color: #fff;
+    border-bottom: solid 1px #ddd;
+}
+
+.detalhevoltar {
+    font-family: 'centra-no2', sans-serif;
+    background-color: transparent;
+    border: solid 1px #575757;
+    color: #575757;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.detalhevoltar:hover {
+    background-color: #ececea;
+}
+
+.detalhefechar {
+    background-color: transparent;
+    border: none;
+    color: #575757;
+    font-size: 34px;
+    line-height: 1;
+    padding: 0 6px;
+    cursor: pointer;
+}
+
+.detalheconteudo {
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px 50px;
+}
+
+.detalheconteudo .item {
+    background-color: #fff;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.itemvalor {
+    font-family: 'centra-no2', sans-serif;
+    font-size: 26px;
+    color: #000;
+    margin-top: 20px;
+}
+
+.itemimgcontainer {
+    position: relative;
+}
+
+.itemimg {
+    cursor: zoom-in;
+}
+
+.itemampliar {
+    position: absolute;
+    top: 32px;
+    right: 12px;
+    font-family: 'centra-no2', sans-serif;
+    background-color: rgba(0, 0, 0, .6);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.itemampliar:hover {
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background-color: rgba(0, 0, 0, .95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightboximg {
+    max-width: 92%;
+    max-height: 88%;
+    object-fit: contain;
+}
+
+.lightboxfechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.lightboxcontador {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    font-family: 'centra-no2', sans-serif;
+    color: #fff;
+    font-size: 15px;
+}
+
+.lightboxanterior,
+.lightboxproxima {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.lightboxanterior {
+    left: 8px;
+}
+
+.lightboxproxima {
+    right: 8px;
+}
+
+.lightboxanterior img,
+.lightboxproxima img {
+    width: 45px;
+    display: block;
 }

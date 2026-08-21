@@ -88,3 +88,39 @@
     padding-left: 22px;
     padding-right: 22px;
 }
+
+.simulador .container {
+    padding: 78px 22px 25px;
+}
+
+.simsteps {
+    gap: 6px;
+}
+
+.simstep {
+    font-size: 13px;
+}
+
+.simstep + .simstep::before {
+    width: 16px;
+    margin-right: 6px;
+}
+
+.simpaneltitle {
+    font-size: 24px;
+}
+
+.simgrid,
+.simchoices,
+.simchoices-4 {
+    grid-template-columns: 1fr;
+}
+
+.simnav {
+    flex-direction: column-reverse;
+}
+
+.simnav button {
+    width: 100%;
+    min-width: 0;
+}

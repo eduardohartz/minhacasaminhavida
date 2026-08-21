@@ -124,90 +124,203 @@
 
     <div class="simulador" id="simulador">
         <div class="container">
-            <span class="title">Cadasto para análise</span>
-            <form id="form">
-                <div class="item">
-                    <label for="nome">Nome Completo<span class="red">*</span></label><br>
-                    <input type="text" class="input" name="nome" id="nome" required>
-                </div>
-                <div class="item">
-                    <label for="email">E-Mail<span class="red">*</span></label><br>
-                    <input type="email" class="input" name="email" id="email" required>
-                </div>
-                <div class="item">
-                    <label for="telefone">Telefone<span class="red">*</span></label><br>
-                    <input type="text" class="input" name="telefone" id="telefone" value="+55" required>
-                </div>
-                <div class="item">
-                    <label for="cpf">CPF<span class="red">*</span></label><br>
-                    <input type="text" class="input" name="cpf" id="cpf" required>
-                </div>
-                <div class="item">
-                    <label for="renda">Renda Familiar<span class="red">*</span></label><br>
-                    <select name="renda" class="input" id="renda" required>
-                        <option value="">—Escolha uma opção—</option>
-                        <option value="Só tenho bolsa familia">Só tenho bolsa familia</option>
-                        <option value="Até R$3.200">Até R$3.200</option>
-                        <option value="Entre R$3.201 e R$5.000">Entre R$3.201 e R$5.000</option>
-                        <option value="Entre R$5.001 e R$9.600">Entre R$5.001 e R$9.600</option>
-                        <option value="Entre R$9.601 e R$13.000">Entre R$9.601 e R$13.000</option>
-                        <option value="Maior que R$13.000">Maior que R$13.000</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <label for="estadocivil">Estado Civil<span class="red">*</span></label><br>
-                    <select name="estadocivil" class="input" id="estadocivil" required>
-                        <option value="">—Escolha uma opção—</option>
-                        <option value="SOLTEIRO">Solteiro(a)</option>
-                        <option value="CASADO">Casado(a)</option>
-                        <option value="DIVORCIADO">Divociado(a)</option>
-                        <option value="VIUVO">Viuvo(a)</option>
-                        <option value="UNIAO ESTAVEL">União Estavel</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <label>Possui 36 meses de FGTS?<span class="red">*</span></label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="fgtssim" name="fgts" value="Sim" required>
-                            <label for="fgtssim">Sim</label>
+            <span class="title">Simulador de habitação</span>
+
+            <div class="simhead">
+                <span class="simbadge">Simulação completa em 1 minuto</span>
+            </div>
+
+            <ol class="simsteps" id="simsteps">
+                <li class="simstep current" data-step="1"><span class="simstepnum">1</span>Dados pessoais</li>
+                <li class="simstep" data-step="2"><span class="simstepnum">2</span>Dados do imóvel</li>
+            </ol>
+
+            <form id="form" novalidate>
+                <fieldset class="simpanel current" data-step="1">
+                    <legend class="simpaneltitle">Seus dados pessoais</legend>
+                    <span class="simpanelsub">Precisamos de algumas informações básicas sobre você</span>
+
+                    <span class="simgrouptitle">Informações básicas</span>
+                    <div class="simgrid">
+                        <div class="simfield">
+                            <label for="nome">Nome completo <span class="red">*</span></label>
+                            <input type="text" class="input" name="nome" id="nome" autocomplete="name" required>
                         </div>
-                        <div class="radio-option">
-                            <input type="radio" id="fgtsnao" name="fgts" value="Nao" required>
-                            <label for="fgtsnao">Não</label>
+                        <div class="simfield">
+                            <label for="cpf">CPF <span class="red">*</span></label>
+                            <input type="text" class="input" name="cpf" id="cpf" inputmode="numeric" autocomplete="off" required>
+                        </div>
+                        <div class="simfield">
+                            <label for="nascimento">Data de nascimento <span class="red">*</span></label>
+                            <input type="text" class="input" name="data_nascimento" id="nascimento" inputmode="numeric" placeholder="DD/MM/AAAA" required>
+                        </div>
+                        <div class="simfield">
+                            <label for="telefone">Telefone celular <span class="red">*</span></label>
+                            <input type="text" class="input" name="telefone" id="telefone" value="+55 " inputmode="tel" autocomplete="tel" required>
+                        </div>
+                        <div class="simfield">
+                            <label for="email">E-mail <span class="red">*</span></label>
+                            <input type="email" class="input" name="email" id="email" autocomplete="email" required>
+                        </div>
+                        <div class="simfield">
+                            <label for="renda">Renda bruta mensal <span class="red">*</span></label>
+                            <input type="text" class="input" name="renda" id="renda" inputmode="numeric" placeholder="R$ 0,00" required>
+                            <span class="simhint">Some todas as rendas de quem vai participar</span>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <label>Possui dependentes?<span class="red">*</span></label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="dependentessim" name="dependentes" value="Sim" required>
-                            <label for="dependentessim">Sim</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="dependentesnao" name="dependentes" value="Nao" required>
-                            <label for="dependentesnao">Não</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <label>Emprego<span class="red">*</span></label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="autonomo" name="emprego" value="AUTONOMO" required>
-                            <label for="autonomo">Autônomo</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="assalariado" name="emprego" value="CLT" required>
-                            <label for="assalariado">Assalariado</label>
+
+                    <span class="simgrouptitle">Informações adicionais</span>
+
+                    <div class="simquestion">
+                        <span class="simquestiontext">Você tem, somando todos os empregos, pelo menos 3 anos de trabalho com depósito de FGTS? <span class="red">*</span></span>
+                        <div class="simchoices">
+                            <label class="simchoice" for="fgtssim">
+                                <span>Sim, tenho 3 anos ou mais</span>
+                                <input type="radio" id="fgtssim" name="fgts" value="Sim" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                            <label class="simchoice" for="fgtsnao">
+                                <span>Não, tenho menos de 3 anos</span>
+                                <input type="radio" id="fgtsnao" name="fgts" value="Nao" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
                         </div>
                     </div>
-                </div>
-                <input type="hidden" name="midia" value="Site MCMV Douglas - POA">
-                <span class="formstatus" id="formstatus" role="status" aria-live="polite"></span>
-                <button type="submit" id="formsubmit">Fazer Simulação</button>
+
+                    <div class="simquestion">
+                        <span class="simquestiontext">Possui mais de um comprador e/ou dependente na proposta? <span class="red">*</span></span>
+                        <div class="simchoices">
+                            <label class="simchoice" for="dependentessim">
+                                <span>Sim, tenho!</span>
+                                <input type="radio" id="dependentessim" name="dependentes" value="Sim" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                            <label class="simchoice" for="dependentesnao">
+                                <span>Não, só eu</span>
+                                <input type="radio" id="dependentesnao" name="dependentes" value="Nao" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="simnav">
+                        <span></span>
+                        <button type="button" class="simnext" data-goto="2">Continuar</button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="simpanel" data-step="2" hidden>
+                    <legend class="simpaneltitle">Dados do imóvel</legend>
+                    <span class="simpanelsub">Assim encontramos as opções certas para o seu perfil</span>
+
+                    <div class="simquestion">
+                        <span class="simquestiontext">Tipo de imóvel <span class="red">*</span></span>
+                        <div class="simchoices">
+                            <label class="simchoice" for="tipo_imovelcasa">
+                                <span>Residencial — Casa e apartamento</span>
+                                <input type="radio" id="tipo_imovelcasa" name="tipo_imovel" value="Residencial - Casa e apartamento" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                            <label class="simchoice" for="tipo_imovelterreno">
+                                <span>Residencial — Terreno e construção</span>
+                                <input type="radio" id="tipo_imovelterreno" name="tipo_imovel" value="Residencial - Terreno e construção" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="simquestion">
+                        <span class="simquestiontext">O que você deseja? <span class="red">*</span></span>
+                        <div class="simchoices simchoices-4">
+                            <label class="simchoice" for="objetivonovo">
+                                <span>Comprar novo</span>
+                                <input type="radio" id="objetivonovo" name="objetivo" value="Comprar novo" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                            <label class="simchoice" for="objetivousado">
+                                <span>Comprar usado</span>
+                                <input type="radio" id="objetivousado" name="objetivo" value="Comprar usado" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                            <label class="simchoice" for="objetivoterreno">
+                                <span>Comprar terreno</span>
+                                <input type="radio" id="objetivoterreno" name="objetivo" value="Comprar terreno" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                            <label class="simchoice" for="objetivoconstruir">
+                                <span>Construir</span>
+                                <input type="radio" id="objetivoconstruir" name="objetivo" value="Construir" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <span class="simgrouptitle">Localização do imóvel</span>
+                    <div class="simgrid">
+                        <div class="simfield">
+                            <label for="estado">Estado <span class="red">*</span></label>
+                            <select class="input" name="estado" id="estado" required>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS" selected>RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                            </select>
+                        </div>
+                        <div class="simfield">
+                            <label for="cidade">Cidade <span class="red">*</span></label>
+                            <input type="text" class="input" name="cidade" id="cidade" autocomplete="address-level2" required>
+                        </div>
+                    </div>
+
+                    <div class="simquestion">
+                        <span class="simquestiontext">Você possui outro imóvel na mesma cidade? <span class="red">*</span></span>
+                        <div class="simchoices">
+                            <label class="simchoice" for="outro_imovelsim">
+                                <span>Sim, possuo</span>
+                                <input type="radio" id="outro_imovelsim" name="outro_imovel" value="Sim" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                            <label class="simchoice" for="outro_imovelnao">
+                                <span>Não possuo</span>
+                                <input type="radio" id="outro_imovelnao" name="outro_imovel" value="Nao" required>
+                                <span class="simdot" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="midia" value="Site MCMV Douglas - POA">
+                    <span class="formstatus" id="formstatus" role="status" aria-live="polite"></span>
+
+                    <div class="simnav">
+                        <button type="button" class="simback" data-goto="1">Voltar</button>
+                        <button type="submit" id="formsubmit">Fazer simulação</button>
+                    </div>
+                </fieldset>
             </form>
+
             <span class="formdisclaimer">Retornamos o contato em até 24 horas. Seus dados são usados apenas para o seu
                 atendimento.</span>
         </div>

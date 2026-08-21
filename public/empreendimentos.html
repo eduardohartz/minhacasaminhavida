@@ -64,14 +64,7 @@
         </div>
     </div>
     <div class="landing">
-        <img alt="imagem" srcset="
-            /assets/img/capas/beachTwo230.webp   230w,
-            /assets/img/capas/beachTwo640.webp   640w,
-            /assets/img/capas/beachTwo960.webp   960w,
-            /assets/img/capas/beachTwo1920.webp 1920w,
-            /assets/img/capas/beachTwo2560.webp 2560w,
-            /assets/img/capas/beachTwo3440.webp 3440w
-            " src="/assets/img/capas/beachTwo1920.webp" class="landingimg" />
+        <div class="landingshuffle" id="landingshuffle" aria-hidden="true"></div>
         <h1 class="landingtitle">Empreendimentos</h1>
     </div>
     <div class="empreendimentos">
@@ -81,7 +74,7 @@
                 <option value="todas">Todas</option>
             </select>
         </div>
-        <div id="itens"></div>
+        <div class="cardgrid" id="cardgrid"></div>
         <div id="loading">Carregando empreendimentos...</div>
         <div id="noitems" style="display: none;">No momento, não temos nenhum empreendimento nessa cidade.</div>
         <div id="loaderror" style="display: none;">
@@ -90,6 +83,27 @@
                 WhatsApp</a> e enviamos as opções disponíveis.
         </div>
     </div>
+
+    <div class="detalhe" id="detalhe" hidden role="dialog" aria-modal="true" aria-label="Detalhes do empreendimento">
+        <div class="detalhebar">
+            <button type="button" class="detalhevoltar" id="detalhevoltar">Voltar</button>
+            <button type="button" class="detalhefechar" id="detalhefechar" aria-label="Fechar">&times;</button>
+        </div>
+        <div class="detalheconteudo" id="detalheconteudo"></div>
+    </div>
+
+    <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+        <button type="button" class="lightboxfechar" id="lightboxfechar" aria-label="Fechar">&times;</button>
+        <span class="lightboxcontador" id="lightboxcontador"></span>
+        <button type="button" class="lightboxanterior" id="lightboxanterior" aria-label="Imagem anterior">
+            <img alt="" src="/assets/img/utils/arrowleft.webp">
+        </button>
+        <button type="button" class="lightboxproxima" id="lightboxproxima" aria-label="Próxima imagem">
+            <img alt="" src="/assets/img/utils/arrowright.webp">
+        </button>
+        <img alt="" class="lightboximg" id="lightboximg">
+    </div>
+
     <footer>
         <span>&copy; 2026 Minha Casa Minha Vida RS - contato@minhacasaminhavidars.com.br</span>
         

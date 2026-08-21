@@ -13,11 +13,15 @@ const ALLOWED_FIELDS = [
     'email',
     'telefone',
     'cpf',
+    'data_nascimento',
     'renda',
-    'estado_civil',
     'fgts',
     'dependentes',
-    'emprego',
+    'tipo_imovel',
+    'objetivo',
+    'estado',
+    'cidade',
+    'outro_imovel',
     'midia',
 ];
 

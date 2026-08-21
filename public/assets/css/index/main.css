@@ -558,3 +558,268 @@ body {
     background-color: #9a9a9a;
     cursor: default;
 }
+
+.simulador .container {
+    display: block;
+    padding: 62px 40px 30px;
+}
+
+.simhead {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.simbadge {
+    display: inline-block;
+    border: solid 1px #575757;
+    color: #575757;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 13px;
+    padding: 5px 14px;
+}
+
+.simsteps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    margin: 0 0 30px;
+    padding: 0 0 22px;
+    border-bottom: solid 1px #e4e4e4;
+    font-family: 'centra-no2', sans-serif;
+}
+
+.simstep {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #9a9a9a;
+}
+
+.simstep + .simstep::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background-color: #ddd;
+    margin-right: 10px;
+}
+
+.simstep.current {
+    color: #333;
+}
+
+.simstepnum {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #c9c8c2;
+    color: #fff;
+    font-size: 13px;
+}
+
+.simstep.current .simstepnum {
+    background-color: #575757;
+}
+
+.simpanel {
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'centra-no2', sans-serif;
+}
+
+.simpanel[hidden] {
+    display: none;
+}
+
+.simpaneltitle {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font-family: 'recife-display', Georgia;
+    font-size: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.simpanelsub {
+    display: block;
+    font-size: 15px;
+    color: #777;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 30px;
+}
+
+.simgrouptitle {
+    display: block;
+    font-size: 17px;
+    color: #333;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+    border-bottom: solid 1px #e4e4e4;
+}
+
+.simgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.simfield {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.simfield label {
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.simfield .input {
+    height: 42px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: solid 1px #333;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 15px;
+}
+
+.simfield select.input {
+    height: 42px;
+}
+
+.simhint {
+    font-size: 13px;
+    color: #8a8a8a;
+}
+
+.simfield.invalid .input {
+    border-color: #b00020;
+}
+
+.simquestion {
+    background-color: #f3f2ee;
+    border: solid 1px #e4e2db;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.simquestion.invalid {
+    border-color: #b00020;
+}
+
+.simquestiontext {
+    display: block;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 14px;
+}
+
+.simchoices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+}
+
+.simchoices-4 {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.simchoice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #fff;
+    border: solid 1px #ddd;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
+}
+
+.simchoice:hover {
+    border-color: #9a9a9a;
+}
+
+.simchoice input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.simdot {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: solid 1px #9a9a9a;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.simchoice:has(input:checked) {
+    border-color: #575757;
+    box-shadow: inset 0 0 0 1px #575757;
+}
+
+.simchoice:has(input:checked) .simdot {
+    border-color: #575757;
+    background-color: #575757;
+    box-shadow: inset 0 0 0 3px #fff;
+}
+
+.simchoice:has(input:focus-visible) {
+    outline: 2px solid #575757;
+    outline-offset: 2px;
+}
+
+.simnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: solid 1px #e4e4e4;
+}
+
+.simnav button {
+    font-family: 'centra-no2', sans-serif;
+    border: none;
+    min-width: 180px;
+    padding: 0 25px;
+    height: 55px;
+    font-size: 16px;
+    background-color: #575757;
+    color: #fff;
+    cursor: pointer;
+}
+
+.simnav button:hover {
+    background-color: #6b6b6b;
+}
+
+.simnav .simback {
+    background-color: transparent;
+    color: #575757;
+    border: solid 1px #575757;
+}
+
+.simnav .simback:hover {
+    background-color: #ececea;
+}
+
+.simnav button:disabled {
+    background-color: #9a9a9a;
+    cursor: default;
+}
