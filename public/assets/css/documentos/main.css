@@ -9,6 +9,8 @@
     font-size: 50px;
     width: 78%;
     text-shadow: 2px 2px 5px #000;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .landingsub {
@@ -18,7 +20,7 @@
     margin-top: 25px;
     font-size: 16px;
     text-align: center;
-    width: 80%;
+    width: 78%;
     text-shadow: 3px 3px 5px #000;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
