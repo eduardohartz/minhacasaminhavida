@@ -105,6 +105,33 @@ html {
     font-weight: bold;
 }
 
+.navwhats {
+    position: absolute;
+    right: 55px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'centra-no2', sans-serif;
+    font-size: 16px;
+}
+
+.navwhats,
+.navwhats:link,
+.navwhats:visited {
+    color: #000;
+}
+
+.navwhats:hover {
+    font-weight: bold;
+}
+
+.navwhatsicon {
+    width: 28px;
+}
+
 .navmenubtn {
     position: absolute;
     right: 15px;

@@ -9,3 +9,11 @@
 .navmenubtn {
     display: block;
 }
+
+.navwhats {
+    right: 58px;
+}
+
+.navwhatsnum {
+    display: none;
+}
