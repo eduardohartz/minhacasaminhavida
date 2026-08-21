@@ -600,14 +600,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     margin-top: 15px;
 }
 
 .simicon {
     display: block;
-    margin: 0 auto 15px;
-    width: 75px;
+    width: 35px;
 }
 
 .simbadge {
