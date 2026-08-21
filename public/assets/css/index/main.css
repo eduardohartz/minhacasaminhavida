@@ -748,7 +748,7 @@ body {
 }
 
 .simchoices-4 {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
 }
 
 .simchoice {
@@ -802,7 +802,7 @@ body {
 .simnav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 15px;
     margin-top: 28px;
     padding-top: 22px;
