@@ -564,6 +564,12 @@ body {
     padding: 62px 40px 30px;
 }
 
+.simulador .container form {
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
 .simulador .container .title {
     top: 22px;
     width: auto;
