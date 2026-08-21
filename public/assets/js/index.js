@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
             teto: 'Sem teto do programa',
             juros: 'Conforme o banco',
             subsidio: 'Não se aplica',
-            nota: 'Sua renda passa do teto do Minha Casa Minha Vida, mas também trabalhamos com financiamento SBPE. Faça a análise e um consultor apresenta as condições.'
+            nota: 'Sua renda passa do teto do Minha Casa Minha Vida, mas também trabalhamos com financiamento SBPE. Faça a simulação e um consultor apresenta as condições.'
         }
     ];
 

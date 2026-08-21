@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (imovel.descricao) item.appendChild(el('span', 'itemdesc', imovel.descricao));
 
-        item.appendChild(el('span', 'analise', 'Faça a sua análise gratuita e descubra o valor da sua parcela.*'));
+        item.appendChild(el('span', 'analise', 'Faça a sua simulação gratuita e descubra o valor da sua parcela.*'));
         item.appendChild(el('span', 'small', '*Sujeito a análise de crédito'));
 
         const listaInfo = listaColunas(infoBasica(imovel));
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const cta = el('a', 'itemcta');
         cta.href = '/#simulador';
-        cta.appendChild(el('button', 'itemctabtn', 'Quero fazer minha análise'));
+        cta.appendChild(el('button', 'itemctabtn', 'Quero fazer minha simulação'));
         item.appendChild(cta);
 
         detalheConteudo.appendChild(item);
