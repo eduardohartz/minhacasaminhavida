@@ -551,7 +551,6 @@ body {
     font-family: 'centra-no2', sans-serif;
     font-size: 13px;
     color: #8a8a8a;
-    padding: 0 40px 25px;
 }
 
 .container button:disabled {
@@ -586,7 +585,7 @@ body {
 
 .simulador .formdisclaimer {
     box-sizing: border-box;
-    padding: 0 0 15px;
+    padding: 25px 0 15px;
 }
 
 .simhead {
