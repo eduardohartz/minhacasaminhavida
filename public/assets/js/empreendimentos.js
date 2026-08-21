@@ -151,9 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const camadas = fotos.map((src, index) => {
             const img = el('img', 'landingslide' + (index === 0 ? ' visible' : ''));
-            img.src = src;
             img.alt = '';
-            img.loading = index === 0 ? 'eager' : 'lazy';
+            img.decoding = 'async';
+            if (index === 0) {
+                img.src = src;
+                img.fetchPriority = 'high';
+            }
             shuffle.appendChild(img);
             return img;
         });
@@ -161,11 +164,19 @@ document.addEventListener('DOMContentLoaded', () => {
         shuffle.classList.add('active');
         if (camadas.length < 2) return;
 
+        function carregar(index) {
+            const img = camadas[index];
+            if (!img.src) img.src = fotos[index];
+        }
+
         let atual = 0;
         setInterval(() => {
+            const proximo = (atual + 1) % camadas.length;
+            carregar(proximo);
             camadas[atual].classList.remove('visible');
-            atual = (atual + 1) % camadas.length;
+            atual = proximo;
             camadas[atual].classList.add('visible');
+            carregar((atual + 1) % camadas.length);
         }, 5000);
     }
 
@@ -181,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = capa;
             img.alt = imovel.nome || 'Empreendimento';
             img.loading = 'lazy';
+            img.decoding = 'async';
             card.appendChild(img);
         }
 

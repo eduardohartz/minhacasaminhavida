@@ -31,7 +31,7 @@
 
 .selector {
     font-family: 'centra-no2', sans-serif;
-    max-width: 850px;
+    max-width: 1400px;
     width: 95%;
     display: flex;
     flex-direction: column;
@@ -209,13 +209,6 @@
     text-align: center;
 }
 
-#itens {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
 #loading,
 #loaderror {
     font-family: 'centra-no2', sans-serif;
@@ -291,9 +284,9 @@
 
 .cardgrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 20px;
-    max-width: 850px;
+    max-width: 1400px;
     width: 95%;
     margin-top: 25px;
     margin-bottom: 40px;
@@ -302,6 +295,7 @@
 .empcard {
     display: flex;
     flex-direction: column;
+    height: 100%;
     text-align: left;
     padding: 0;
     border: solid 1px #8f8e87;
@@ -315,6 +309,7 @@
 }
 
 .empcard img {
+    flex-shrink: 0;
     width: 100%;
     height: 175px;
     object-fit: cover;
@@ -323,6 +318,7 @@
 .empcardbody {
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 5px;
     padding: 15px;
 }
@@ -341,7 +337,8 @@
 .empcardvalor {
     font-size: 18px;
     color: #333;
-    margin-top: 5px;
+    margin-top: auto;
+    padding-top: 10px;
 }
 
 .empcardver {

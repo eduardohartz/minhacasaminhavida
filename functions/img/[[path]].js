@@ -7,7 +7,10 @@ import { requireOrigin, upstreamFailure } from '../_shared.js';
 // here, and this function is what actually serves the bytes, so the CDN host
 // never appears in the page or in the network panel.
 
-const CACHE_SECONDS = 86400;
+// R2 keys are minted as `${timestamp}-${filename}` by the CRM, so a given key's
+// bytes never change. That makes the response genuinely immutable and worth a
+// year rather than a day: repeat visits and edge hits stop re-fetching entirely.
+const CACHE_SECONDS = 31536000;
 
 // Images only. Anything else is a sign the path was tampered with.
 const ALLOWED_EXTENSIONS = new Set(['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg', 'mp4', 'webm']);

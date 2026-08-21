@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
             img.src = imovel.imagem_principal;
             img.alt = imovel.nome || 'Empreendimento';
             img.loading = 'lazy';
+            img.decoding = 'async';
             card.appendChild(img);
         }
 
