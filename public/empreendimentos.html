@@ -72,11 +72,48 @@
         <h1 class="landingtitle">Empreendimentos</h1>
     </div>
     <div class="empreendimentos">
-        <div class="selector">
-            <label for="cidade">Selecione uma cidade:</label>
-            <select id="cidade">
-                <option value="todas">Todas</option>
-            </select>
+        <div class="filtros">
+            <div class="filtrogrid">
+                <div class="filtro filtrobusca">
+                    <label for="busca">Buscar</label>
+                    <input type="search" id="busca" class="input" placeholder="Nome, bairro ou código"
+                        autocomplete="off">
+                </div>
+                <div class="filtro">
+                    <label for="cidade">Cidade</label>
+                    <select id="cidade" class="input">
+                        <option value="">Todas</option>
+                    </select>
+                </div>
+                <div class="filtro">
+                    <label for="bairro">Bairro</label>
+                    <select id="bairro" class="input">
+                        <option value="">Todos</option>
+                    </select>
+                </div>
+                <div class="filtro">
+                    <label for="dormitorios">Dormitórios</label>
+                    <select id="dormitorios" class="input">
+                        <option value="">Qualquer</option>
+                        <option value="1">1 ou mais</option>
+                        <option value="2">2 ou mais</option>
+                        <option value="3">3 ou mais</option>
+                    </select>
+                </div>
+                <div class="filtro">
+                    <label for="valormax">Valor até</label>
+                    <select id="valormax" class="input">
+                        <option value="">Sem limite</option>
+                        <option value="275000">R$ 275 mil</option>
+                        <option value="400000">R$ 400 mil</option>
+                        <option value="600000">R$ 600 mil</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filtrobar">
+                <span class="filtrocount" id="filtrocount"></span>
+                <button type="button" class="filtrolimpar" id="filtrolimpar" hidden>Limpar filtros</button>
+            </div>
         </div>
         <div class="cardgrid" id="cardgrid"></div>
         <div id="loading">Carregando empreendimentos...</div>
@@ -105,7 +142,7 @@
         <button type="button" class="lightboxproxima" id="lightboxproxima" aria-label="Próxima imagem">
             <img alt="" src="/assets/img/utils/arrowright.webp">
         </button>
-        <img alt="" class="lightboximg" id="lightboximg">
+        <div class="lightboxmedia" id="lightboxmedia"></div>
     </div>
 
     <footer>

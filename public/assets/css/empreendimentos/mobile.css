@@ -36,3 +36,15 @@
 .lightboxproxima img {
     width: 32px;
 }
+
+.filtros {
+    padding: 15px;
+}
+
+.filtrogrid {
+    grid-template-columns: 1fr;
+}
+
+.filtrobusca {
+    grid-column: auto;
+}

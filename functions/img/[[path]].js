@@ -13,7 +13,12 @@ import { requireOrigin, upstreamFailure } from '../_shared.js';
 const CACHE_SECONDS = 31536000;
 
 // Images only. Anything else is a sign the path was tampered with.
-const ALLOWED_EXTENSIONS = new Set(['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg', 'mp4', 'webm']);
+// Mirrors what the CRM accepts on upload: image/* plus mp4, webm, quicktime
+// (.mov) and x-msvideo (.avi). A .mov would 404 here otherwise.
+const ALLOWED_EXTENSIONS = new Set([
+    'jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg',
+    'mp4', 'webm', 'mov', 'm4v', 'ogg', 'ogv', 'avi',
+]);
 
 export async function onRequestGet(context) {
     const { params, env } = context;

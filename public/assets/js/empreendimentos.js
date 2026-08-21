@@ -91,23 +91,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const loading = document.getElementById('loading');
     const noItems = document.getElementById('noitems');
     const loadError = document.getElementById('loaderror');
-    const select = document.getElementById('cidade');
+    const buscaInput = document.getElementById('busca');
+    const cidadeSelect = document.getElementById('cidade');
+    const bairroSelect = document.getElementById('bairro');
+    const dormSelect = document.getElementById('dormitorios');
+    const valorSelect = document.getElementById('valormax');
+    const filtroCount = document.getElementById('filtrocount');
+    const filtroLimpar = document.getElementById('filtrolimpar');
     const shuffle = document.getElementById('landingshuffle');
 
     const detalhe = document.getElementById('detalhe');
     const detalheConteudo = document.getElementById('detalheconteudo');
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboximg');
+    const lightboxMedia = document.getElementById('lightboxmedia');
     const lightboxContador = document.getElementById('lightboxcontador');
 
     let imoveis = [];
 
-    function slugify(value) {
-        return (value || '')
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase()
-            .replace(/[^a-z0-9]/g, '');
+    const VIDEO_RE = /\.(?:mp4|webm|mov|m4v|ogg|ogv|avi)(?:\?.*)?$/i;
+
+    function ehVideo(src) {
+        return VIDEO_RE.test(src || '');
     }
 
     function el(tag, className, text) {
@@ -146,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function iniciarShuffle(destaques) {
-        const fotos = destaques.map(i => i.imagem_principal).filter(Boolean);
+        const fotos = destaques.map(i => i.imagem_principal).filter(src => src && !ehVideo(src));
         if (!fotos.length || !shuffle) return;
 
         const camadas = fotos.map((src, index) => {
@@ -183,10 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function buildCard(imovel) {
         const card = el('button', 'empcard');
         card.type = 'button';
-        const cidadeSlug = slugify(imovel.cidade);
-        if (cidadeSlug) card.classList.add(cidadeSlug);
+        card.imovel = imovel;
 
-        const capa = imovel.imagem_principal;
+        const capa = ehVideo(imovel.imagem_principal) ? null : imovel.imagem_principal;
         if (capa) {
             const img = el('img');
             img.src = capa;
@@ -236,24 +239,61 @@ document.addEventListener('DOMContentLoaded', () => {
         if (start < 0) start = 0;
 
         for (let i = start; i < Math.min(start + previewsToShow, galeriaImagens.length); i++) {
-            const img = el('img', 'itemimgpreview' + (i === galeriaIndex ? ' selected' : ''));
-            img.src = galeriaImagens[i];
-            img.alt = 'Foto do empreendimento';
-            img.loading = 'lazy';
+            const src = galeriaImagens[i];
             const index = i;
-            img.addEventListener('click', () => {
+            const selecionado = i === galeriaIndex ? ' selected' : '';
+            let thumb;
+
+            if (ehVideo(src)) {
+                thumb = el('span', 'itemimgpreview itemimgpreviewvideo' + selecionado);
+                const video = el('video');
+                video.src = src;
+                video.muted = true;
+                video.playsInline = true;
+                video.preload = 'metadata';
+                thumb.appendChild(video);
+                thumb.appendChild(el('span', 'itemimgplay'));
+            }
+            else {
+                thumb = el('img', 'itemimgpreview' + selecionado);
+                thumb.src = src;
+                thumb.alt = 'Foto do empreendimento';
+                thumb.loading = 'lazy';
+                thumb.decoding = 'async';
+            }
+
+            thumb.addEventListener('click', () => {
                 pararCiclo();
                 mostrarImagem(index);
             });
-            strip.appendChild(img);
+            strip.appendChild(thumb);
         }
     }
 
     function mostrarImagem(index) {
         galeriaIndex = index;
-        const main = detalhe.querySelector('.itemimg');
-        if (main) main.src = galeriaImagens[index];
+        const atual = detalhe.querySelector('.itemimg');
+        if (atual) atual.replaceWith(criarMidiaPrincipal(index));
         renderPreviews();
+    }
+
+    function criarMidiaPrincipal(index) {
+        const src = galeriaImagens[index];
+        if (ehVideo(src)) {
+            const video = el('video', 'itemimg');
+            video.src = src;
+            video.controls = true;
+            video.muted = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+            return video;
+        }
+        const img = el('img', 'itemimg');
+        img.src = src;
+        img.alt = 'Foto do empreendimento';
+        img.decoding = 'async';
+        img.addEventListener('click', abrirLightbox);
+        return img;
     }
 
     function passar(delta) {
@@ -274,7 +314,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function atualizarLightbox() {
-        lightboxImg.src = galeriaImagens[galeriaIndex];
+        const src = galeriaImagens[galeriaIndex];
+        lightboxMedia.innerHTML = '';
+        if (ehVideo(src)) {
+            const video = el('video');
+            video.src = src;
+            video.controls = true;
+            video.autoplay = true;
+            video.playsInline = true;
+            lightboxMedia.appendChild(video);
+        }
+        else {
+            const img = el('img');
+            img.src = src;
+            img.alt = 'Foto do empreendimento ampliada';
+            lightboxMedia.appendChild(img);
+        }
         lightboxContador.textContent = galeriaImagens.length > 1
             ? (galeriaIndex + 1) + ' / ' + galeriaImagens.length
             : '';
@@ -285,6 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function fecharLightbox() {
         lightbox.hidden = true;
+        lightboxMedia.innerHTML = '';
         if (detalhe.hidden) document.body.style.overflow = '';
     }
 
@@ -372,9 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 passar(1);
             });
 
-            const main = el('img', 'itemimg');
-            main.alt = imovel.nome || 'Empreendimento';
-            main.addEventListener('click', abrirLightbox);
+            const main = criarMidiaPrincipal(0);
 
             const ampliar = el('button', 'itemampliar', 'Ampliar');
             ampliar.type = 'button';
@@ -469,18 +523,83 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!detalhe.hidden) renderPreviews();
     });
 
+    function normalizar(value) {
+        return (value || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase();
+    }
+
+    function combina(imovel) {
+        const termo = normalizar(buscaInput.value.trim());
+        if (termo) {
+            const alvo = normalizar([imovel.nome, imovel.bairro, imovel.cidade, imovel.id].filter(Boolean).join(' '));
+            if (alvo.indexOf(termo) === -1) return false;
+        }
+        if (cidadeSelect.value && imovel.cidade !== cidadeSelect.value) return false;
+        if (bairroSelect.value && imovel.bairro !== bairroSelect.value) return false;
+        if (dormSelect.value && Number(imovel.dormitorios || 0) < Number(dormSelect.value)) return false;
+        if (valorSelect.value && Number(imovel.valor || 0) > Number(valorSelect.value)) return false;
+        return true;
+    }
+
+    function popularBairros() {
+        const cidade = cidadeSelect.value;
+        const atual = bairroSelect.value;
+        const bairros = [];
+        imoveis.forEach(imovel => {
+            if (cidade && imovel.cidade !== cidade) return;
+            if (imovel.bairro && bairros.indexOf(imovel.bairro) === -1) bairros.push(imovel.bairro);
+        });
+        bairros.sort((a, b) => a.localeCompare(b, 'pt-BR'));
+
+        bairroSelect.innerHTML = '';
+        const todos = document.createElement('option');
+        todos.value = '';
+        todos.textContent = 'Todos';
+        bairroSelect.appendChild(todos);
+        bairros.forEach(bairro => {
+            const option = document.createElement('option');
+            option.value = bairro;
+            option.textContent = bairro;
+            bairroSelect.appendChild(option);
+        });
+        bairroSelect.value = bairros.indexOf(atual) === -1 ? '' : atual;
+    }
+
     function applyFilter() {
-        const selected = select.value;
         let visible = 0;
         cardGrid.querySelectorAll('.empcard').forEach(card => {
-            const match = selected === 'todas' || card.classList.contains(selected);
+            const match = combina(card.imovel);
             card.style.display = match ? '' : 'none';
             if (match) visible++;
         });
+
         noItems.style.display = visible === 0 ? '' : 'none';
+
+        const ativo = !!(buscaInput.value.trim() || cidadeSelect.value || bairroSelect.value
+            || dormSelect.value || valorSelect.value);
+        filtroLimpar.hidden = !ativo;
+        filtroCount.textContent = imoveis.length
+            ? `${visible} de ${imoveis.length} ${imoveis.length === 1 ? 'empreendimento' : 'empreendimentos'}`
+            : '';
     }
 
-    select.addEventListener('change', applyFilter);
+    cidadeSelect.addEventListener('change', () => {
+        popularBairros();
+        applyFilter();
+    });
+    [bairroSelect, dormSelect, valorSelect].forEach(campo => campo.addEventListener('change', applyFilter));
+    buscaInput.addEventListener('input', applyFilter);
+
+    filtroLimpar.addEventListener('click', () => {
+        buscaInput.value = '';
+        cidadeSelect.value = '';
+        dormSelect.value = '';
+        valorSelect.value = '';
+        popularBairros();
+        applyFilter();
+    });
 
     previewsToShow = previewCount();
 
@@ -506,10 +625,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cidades.sort((a, b) => a.localeCompare(b, 'pt-BR')).forEach(cidade => {
                 const option = document.createElement('option');
-                option.value = slugify(cidade);
+                option.value = cidade;
                 option.textContent = cidade;
-                select.appendChild(option);
+                cidadeSelect.appendChild(option);
             });
+
+            popularBairros();
+            applyFilter();
 
             iniciarShuffle(imoveis.filter(i => i.destaque === 1 || i.destaque === true).slice(0, 6));
         })
