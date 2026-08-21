@@ -564,6 +564,25 @@ body {
     padding: 62px 40px 30px;
 }
 
+.simulador .container .title {
+    top: 22px;
+    width: auto;
+    max-width: calc(100% - 44px);
+}
+
+.simulador .container button {
+    position: static;
+    left: auto;
+    transform: none;
+    width: auto;
+    margin-bottom: 0;
+}
+
+.simulador .formdisclaimer {
+    box-sizing: border-box;
+    padding: 0 0 15px;
+}
+
 .simhead {
     text-align: center;
     margin-bottom: 25px;
@@ -626,9 +645,6 @@ body {
 }
 
 .simpanel {
-    border: none;
-    margin: 0;
-    padding: 0;
     font-family: 'centra-no2', sans-serif;
 }
 
